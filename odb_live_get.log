@@ -1,0 +1,5183 @@
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in left_join(., odb_live, by = "registration2") : 
+  object 'odb_last_pings' not found
+Calls: %>% ... pull -> mutate -> top_n -> filter -> filter -> left_join
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in left_join(., odb_live, by = "registration2") : 
+  object 'odb_last_pings' not found
+Calls: %>% ... pull -> mutate -> top_n -> filter -> filter -> left_join
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in left_join(., odb_live, by = "registration2") : 
+  object 'odb_last_pings' not found
+Calls: %>% ... pull -> mutate -> top_n -> filter -> filter -> left_join
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in setwd("C:/Users/neild/Documents/dev/xc_guideR") : 
+  cannot change working directory
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in private$validate_token(token) : Invalid `token`.
+Calls: %>% ... send_telegram -> Bot -> <Anonymous> -> initialize -> <Anonymous>
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in private$validate_token(token) : Invalid `token`.
+Calls: %>% ... send_telegram -> Bot -> <Anonymous> -> initialize -> <Anonymous>
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in private$validate_token(token) : Invalid `token`.
+Calls: %>% ... send_telegram -> Bot -> <Anonymous> -> initialize -> <Anonymous>
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in private$validate_token(token) : Invalid `token`.
+Calls: %>% ... send_telegram -> Bot -> <Anonymous> -> initialize -> <Anonymous>
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in private$validate_token(token) : Invalid `token`.
+Calls: %>% ... send_telegram -> Bot -> <Anonymous> -> initialize -> <Anonymous>
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error: Problem with `mutate()` input `..1`.
+i `..1 = across(...)`.
+x Can't subset columns that don't exist.
+x Column `X2` doesn't exist.
+Backtrace:
+     x
+  1. +-`%>%`(...)
+  2. +-dplyr::mutate(...)
+  3. \-dplyr:::mutate.data.frame(...)
+  4.   \-dplyr:::mutate_cols(.data, ..., caller_env = caller_env())
+  5.     +-base::withCallingHandlers(...)
+  6.     \-dplyr:::expand_across(dots[[i]])
+  7.       \-dplyr:::across_setup(...)
+  8.         \-tidyselect::eval_select(cols, data = across_cols)
+  9.           \-tidyselect:::eval_select_impl(...)
+ 10.             +-tidyselect:::with_subscript_errors(...)
+ 11.             | +-base::tryCatch(...)
+ 12.             | | \-base:::tryCatchList(expr, classes, parentenv, handlers)
+ 13.             | |   \-base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 14.             | |     \-base:::doTryCatch(return(expr), name, parentenv, handler)
+ 15.             | \-tidyselect:::instrument_base_errors(expr)
+ 16.             |   \-base::withCallingHandlers(...)
+ 17.             \-tidyselect:::vars_select_eval(...)
+ 18.               \-tidyselect:::walk_data_tree(expr, data_mask, context_mask)
+ 19.                 \-tidyselect:::eval_c(expr, data_mask, context_mask)
+ 20.                   \-tidyselect:::reduce_sels(node, data_mask, context_mask, init = init)
+ 21.                     \-tidyselect:::walk_data_tree(new, data_mask, context_mask)
+ 22.                       \-tidyselect:::as_indices_sel_impl(...)
+ 23.                         \-tidyselect:::as_indices_impl(x, vars, strict = strict)
+ 24.                           \-tidyselect:::chr_as_locations(x, vars)
+ 25.                             \-vctrs::vec_as_location(x, n = length(vars), names = vars)
+ 26.                               \-(function () ...
+ 27.                                 \-vctrs:::stop_subscript_oob(...)
+ 28.                                   \-vctrs:::stop_subscript(...)
+Execution halted
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Warning message:
+In min.default(numeric(0), na.rm = FALSE) :
+  no non-missing arguments to min; returning Inf
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.3     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   2.0.0     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 'tidyverse' was built under R version 4.0.5 
+2: package 'ggplot2' was built under R version 4.0.5 
+3: package 'tibble' was built under R version 4.0.5 
+4: package 'tidyr' was built under R version 4.0.4 
+5: package 'readr' was built under R version 4.0.5 
+6: package 'dplyr' was built under R version 4.0.5 
+7: package 'forcats' was built under R version 4.0.4 
+Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+Warning message:
+package 'sf' was built under R version 4.0.5 
+Warning message:
+package 'leaflet' was built under R version 4.0.4 
+
+Attaching package: 'rvest'
+
+The following object is masked from 'package:readr':
+
+    guess_encoding
+
+Warning message:
+package 'rvest' was built under R version 4.0.5 
+Warning message:
+package 'telegram.bot' was built under R version 4.0.5 
+
+Attaching package: 'glue'
+
+The following object is masked from 'package:dplyr':
+
+    collapse
+
+
+Attaching package: 'lubridate'
+
+The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union
+
+Warning message:
+package 'lubridate' was built under R version 4.0.4 
+Error in readRDS(con, refhook = refhook) : cannot open the connection
+Calls: read_rds -> readRDS
+In addition: Warning message:
+In readRDS(con, refhook = refhook) :
+  cannot open file 'aircraft_codes.RDS': No such file or directory
+Execution halted
