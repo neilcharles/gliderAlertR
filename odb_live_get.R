@@ -24,7 +24,8 @@ if(file.exists("odb_first_pings.RDS")){
 
 #------------ tag live pings for probable paragliders --------------------------
 
-sites <- read_rds("sites_list.RDS")
+sites <- read_rds("sites_list.RDS") %>% 
+  mutate(telegram_group_name = club)
 
 odb_live_sf <- get_site_distances(odb_live, sites)
 
@@ -47,7 +48,9 @@ odb_live_sf <- odb_live_sf %>%
   select(registration2, nearest_site_name, nearest_site_distance)
 
 odb_live <- odb_live %>% 
-  left_join(odb_live_sf, by = "registration2")
+  left_join(odb_live_sf, by = "registration2") %>% 
+  left_join(select(sites, takeoff_name, telegram_group_name), by = c("nearest_site_name" = "takeoff_name")) %>% 
+  left_join(telegram_groups(), by = "telegram_group_name")
 
 
 #------------ update first pings -----------------------------------------------
@@ -101,8 +104,8 @@ odb_live %>%
   mutate(telegram_message_glidernet = glue("Aircraft {registration.x} recently took off and is currently at {round(alt_feet.x,0)}' AMSL doing {ground_speed_kph.y}kph https://live.glidernet.org/#c={lat.y},{long.y}&z=13&s=1&w=0&p=2"),
          telegram_message = glue("{aircraft_type_name.x} '{registration.x}' recently took off from {nearest_site_name.y}. Altitude {round(alt_feet.x,0)}' AMSL with ground speed {ground_speed_kph.x}kph https://www.gliderradar.com/center/{lat.x},{long.x}/zoom/13/time/15/maptype/terrain")
   ) %>% 
-  pull(telegram_message) %>% 
-  walk(.f = ~send_telegram(.x))
+  filter(!is.na(telegram_group_id.x)) %>% 
+  walk2(.x = .$telegram_message, .y = .$telegram_group_id.x, .f = ~send_telegram(.x, .y))
 
 #New trackers
 if(nrow(odb_new_pings)>0){
@@ -116,20 +119,20 @@ if(nrow(odb_new_pings)>0){
   odb_new_messages %>% 
     mutate(telegram_message = glue("{aircraft_type_name} '{registration}' first location ping received at {nearest_site_name}. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://www.gliderradar.com/center/{lat},{long}/zoom/13/time/15/maptype/terrain")
     ) %>% 
-    pull(telegram_message) %>% 
-    walk(.f = ~send_telegram(.x))
+    filter(!is.na(telegram_group_id)) %>% 
+    walk2(.x = .$telegram_message, .y = .$telegram_group_id, .f = ~send_telegram(.x, .y))
 }
 
 #XC Distances
 xc_distances %>% 
   left_join(odb_live, by = "registration2") %>% 
-  left_join(select(odb_first_pings, registration2, nearest_site_name), by = "registration2") %>% 
+  left_join(select(odb_first_pings, registration2, nearest_site_name, telegram_group_id), by = "registration2") %>% 
   top_n(message_limit, registration2) %>% 
   rowwise() %>% 
   mutate(location_name_live = geocode_location(lat = lat_live, long = long_live)) %>% 
   mutate(telegram_message = glue("{aircraft_type_name} '{registration}' is on XC from {nearest_site_name.y}, passing {location_name_live} at {distance_live}km. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://www.gliderradar.com/center/{lat},{long}/zoom/13/time/15/maptype/terrain")) %>% 
-  pull(telegram_message) %>% 
-  walk(.f = ~send_telegram(.x))
+  filter(!is.na(telegram_group_id.y)) %>% 
+  walk2(.x = .$telegram_message, .y = .$telegram_group_id.y, .f = ~send_telegram(.x, .y))
 
 #------------ record most recent pings -----------------------------------------
 

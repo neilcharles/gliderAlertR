@@ -7,11 +7,11 @@ send_telegram <- function(message = NULL, chat_id = -1001798217889){
 }
 
 telegram_groups <- function(){
-  tibble(group_id = c(-1001691078874,
+  tibble(telegram_group_id = c(-1001691078874,
                       -1001545184005,
                       -1001798217889,
                       -1001768573848),
-         group_name = c("Dales",
+         telegram_group_name = c("Dales",
                         "Derbyshire",
                         "Pennine",
                         "Southern"))
