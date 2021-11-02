@@ -9,6 +9,6 @@ print(bot$getMe())
 
 updates <- bot$getUpdates()
 
-updates[[6]]$from_chat_id()
+updates[[27]]$from_chat_id()
 
 bot$sendMessage(chat_id = -1001768573848, text = "Southern")

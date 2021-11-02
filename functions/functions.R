@@ -7,16 +7,42 @@ send_telegram <- function(message = NULL, chat_id = -1001798217889){
 }
 
 telegram_groups <- function(){
-  tibble(telegram_group_id = c(-1001691078874,
-                      -1001545184005,
-                      -1001798217889,
-                      -1001768573848),
-         telegram_group_name = c("Dales",
-                        "Derbyshire",
-                        "Pennine",
-                        "Southern"))
+  tibble(telegram_group_id = c(NA,
+                               -1001545184005,
+                               NA,
+                               NA,
+                               NA,
+                               NA,
+                               -1001679816287,
+                               -1001691078874,
+                               NA,
+                               NA,
+                               -1001798217889,
+                               -1001768573848,
+                               NA,
+                               -1001571452843,
+                               NA,
+                               -1001719738514),
+         telegram_group_name = c("Borders",
+                                 "Central",
+                                 "East",
+                                 "Highlands",
+                                 "Isle of Wight",
+                                 "Lakes",
+                                 "Mid Wales & Mynd",
+                                 "North East",
+                                 "North Wales",
+                                 "Northern Ireland",
+                                 "Pennines & Dales",
+                                 "South East",
+                                 "South Scotland & Grampian",
+                                 "South Wales",
+                                 "South West",
+                                 "West"
+         ))
   
 }
+
 
 aircraft_codes <- function(){
   tibble(
@@ -39,7 +65,7 @@ aircraft_codes <- function(){
       'F'
     ),
     aircraft_type_name = c(
-      'Unknown aircraft type',
+      'Possible PG or HG',
       'Sailplane',  #Glider/motor-glider
       'Tow plane',
       'Helicopter',
@@ -75,7 +101,7 @@ read_ogn_live <- function(){
                   timestamp = lubridate::today() + lubridate::hms(timestamp),
                   alt_feet = alt * 3.28) %>% 
     dplyr::left_join(aircraft_codes(), by = "aircraft_type_code") %>% 
-    tidyr::replace_na(list(aircraft_type_name = 'Unknown aircraft type'))
+    tidyr::replace_na(list(aircraft_type_name = 'Possible PG or HG'))
   
   odb_live
 }
