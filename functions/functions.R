@@ -1,50 +1,67 @@
-send_telegram <- function(message = NULL, chat_id = -1001798217889){
-  
+send_telegram <- function(message = NULL,
+                          chat_id = -1001798217889) {
   bot <- telegram.bot::Bot(token = Sys.getenv('TELEGRAM_HILLTOP'))
   
-  bot$sendMessage(chat_id = chat_id, text = message)   #chat with Neil 96373076
+  bot$sendMessage(chat_id = chat_id,
+                  parse_mode = 'HTML',
+                  text = message)   #chat with Neil 96373076
   
 }
 
-telegram_groups <- function(){
-  tibble(telegram_group_id = c(NA,
-                               -1001545184005,
-                               NA,
-                               NA,
-                               NA,
-                               NA,
-                               -1001679816287,
-                               -1001691078874,
-                               NA,
-                               NA,
-                               -1001798217889,
-                               -1001768573848,
-                               NA,
-                               -1001571452843,
-                               NA,
-                               -1001719738514),
-         telegram_group_name = c("Borders",
-                                 "Central",
-                                 "East",
-                                 "Highlands",
-                                 "Isle of Wight",
-                                 "Lakes",
-                                 "Mid Wales & Mynd",
-                                 "North East",
-                                 "North Wales",
-                                 "Northern Ireland",
-                                 "Pennines & Dales",
-                                 "South East",
-                                 "South Scotland & Grampian",
-                                 "South Wales",
-                                 "South West",
-                                 "West"
-         ))
+telegram_groups <- function(testing = FALSE) {
+  #testing <- TRUE
+  if (!testing) {
+    return(tibble(
+      telegram_group_id = c(
+        -1001688067917,-1001545184005,-1001226015011,-1001750937053,-1001757520671,-1001577094376,-1001679816287,-1001691078874,-1001690641916,-1001798217889,-1001768573848,-1001624842375,-1001571452843,-1001677231927,-1001719738514
+      ),
+      telegram_group_name = c(
+        "Borders",
+        "Central",
+        "East",
+        "Highlands",
+        "Isle of Wight",
+        "Lakes",
+        "Mid Wales & Mynd",
+        "North East",
+        "North Wales",
+        "Pennines & Dales",
+        "South East",
+        "South Scotland & Grampian",
+        "South Wales",
+        "South West",
+        "West"
+      )
+    ))
+  } else {
+    return(tibble(
+      telegram_group_id = c(
+        96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076
+      ),
+      telegram_group_name = c(
+        "Borders",
+        "Central",
+        "East",
+        "Highlands",
+        "Isle of Wight",
+        "Lakes",
+        "Mid Wales & Mynd",
+        "North East",
+        "North Wales",
+        "Pennines & Dales",
+        "South East",
+        "South Scotland & Grampian",
+        "South Wales",
+        "South West",
+        "West"
+      )
+    ))
+  }
   
 }
 
 
-aircraft_codes <- function(){
+aircraft_codes <- function() {
   tibble(
     aircraft_type_code = c(
       '0',
@@ -57,16 +74,17 @@ aircraft_codes <- function(){
       '7',
       '8',
       '9',
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
-      'F'
+      '10',
+      '11',
+      '12',
+      '13',
+      '14',
+      '15'
     ),
     aircraft_type_name = c(
       'Possible PG or HG',
-      'Sailplane',  #Glider/motor-glider
+      'Sailplane',
+      #Glider/motor-glider
       'Tow plane',
       'Helicopter',
       'Parachute',
@@ -85,56 +103,125 @@ aircraft_codes <- function(){
   )
 }
 
-read_ogn_live <- function(){
-  odb_live <- xml2::read_xml("https://live.glidernet.org/lxml.php?a=0&b=59.6&c=49.8&d=2&e=-11") %>% 
-    rvest::html_nodes("m") %>% 
-    rvest::html_attr("a") %>% 
-    tibble::as_tibble() %>% 
+read_ogn_live <- function() {
+  odb_live <-
+    xml2::read_xml("https://live.glidernet.org/lxml.php?a=0&b=59.6&c=49.8&d=2&e=-11") %>%
+    rvest::html_nodes("m") %>%
+    rvest::html_attr("a") %>%
+    tibble::as_tibble() %>%
     tidyr::separate(value, as.character(c(1:14)), sep = ",")
   
-  names(odb_live) <- c("lat", "long", "cn", "registration", "alt", "timestamp", "X1",
-                       "track_deg", "ground_speed_kph", "vertical_speed_ms",
-                       "aircraft_type_code", "receiver", "device_id", "registration2")
+  names(odb_live) <-
+    c(
+      "lat",
+      "long",
+      "cn",
+      "registration",
+      "alt",
+      "timestamp",
+      "X1",
+      "track_deg",
+      "ground_speed_kph",
+      "vertical_speed_ms",
+      "aircraft_type_code",
+      "receiver",
+      "device_id",
+      "registration2"
+    )
   
-  odb_live <- odb_live %>% 
-    dplyr::mutate(across(c("alt", "X1", "track_deg", "ground_speed_kph", "vertical_speed_ms", "lat", "long"), as.numeric),
-                  timestamp = lubridate::today() + lubridate::hms(timestamp),
-                  alt_feet = alt * 3.28) %>% 
-    dplyr::left_join(aircraft_codes(), by = "aircraft_type_code") %>% 
-    tidyr::replace_na(list(aircraft_type_name = 'Possible PG or HG'))
+  odb_live <- odb_live %>%
+    dplyr::mutate(
+      across(
+        c(
+          "alt",
+          "X1",
+          "track_deg",
+          "ground_speed_kph",
+          "vertical_speed_ms",
+          "lat",
+          "long"
+        ),
+        as.numeric
+      ),
+      timestamp = lubridate::today() + lubridate::hms(timestamp),
+      alt_feet = alt * 3.28
+    ) %>%
+    dplyr::left_join(aircraft_codes(), by = "aircraft_type_code") %>%
+    tidyr::replace_na(list(aircraft_type_name = 'Possible PG or HG')) %>%
+    mutate(
+      registration_label = ifelse(
+        is.na(registration) |
+          registration == registration2 |
+          registration == "" |
+          registration == "NA",
+        "(no OGN reg)",
+        glue::glue("'{registration}'")
+      )
+    )
   
   odb_live
 }
 
-get_site_distances <- function(odb_live = NULL, sites = NULL){
-  
+get_site_distances <- function(odb_live = NULL, sites = NULL) {
   #Ping is in range of a paragliding takeoff
-  sites_sf <- sites %>% sf::st_as_sf(coords = c("takeoff_lon", "takeoff_lat"), crs = 4326)
+  sites_sf <-
+    sites %>% sf::st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
+                           crs = 4326)
   
-  odb_live_sf <- odb_live %>% 
+  odb_live_sf <- odb_live %>%
     sf::st_as_sf(coords = c("long", "lat"), crs = 4326)
   
-  nearest_site_index <- odb_live_sf %>% 
+  nearest_site_index <- odb_live_sf %>%
     sf::st_nearest_feature(sites_sf)
   
-  odb_live_sf$nearest_site_name <- sites_sf$takeoff_name[nearest_site_index]
+  odb_live_sf$nearest_site_name <-
+    sites_sf$takeoff_name[nearest_site_index]
   
-  odb_live_sf$nearest_site_distance <- odb_live_sf %>% 
-    sf::st_distance(sites_sf[nearest_site_index,], by_element = TRUE)
+  odb_live_sf$nearest_site_distance <- odb_live_sf %>%
+    sf::st_distance(sites_sf[nearest_site_index, ], by_element = TRUE)
   
   odb_live_sf
   
 }
 
-geocode_location <- function(lat = NULL, long = NULL){
-  
-  if(length(lat)==0 | length(long)==0) return(NA)
+geocode_location <- function(lat = NULL, long = NULL) {
+  if (length(lat) == 0 | length(long) == 0)
+    return(NA)
   
   googleway::set_key(Sys.getenv('GOOGLE_MAPS'))
   
-  geocoded_location <- googleway::google_reverse_geocode(c(lat,long))
+  geocoded_location <-
+    googleway::google_reverse_geocode(c(lat, long))
   
-  # glue::glue('{geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]}, {geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[3]]}')
+  #geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]
   
-  geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]
+  name_attempt <- geocoded_location[["results"]] %>%
+    as_tibble() %>%
+    select(address_components) %>%
+    unnest(address_components) %>%
+    filter(str_detect(as.character(types), 'locality')) %>%
+    filter(row_number() == 1) %>%
+    pull(short_name)
+  
+  if (length(name_attempt) > 0)
+    return(name_attempt)
+  
+  name_attempt <- geocoded_location[["results"]] %>%
+    as_tibble() %>%
+    select(address_components) %>%
+    unnest(address_components) %>%
+    filter(str_detect(as.character(types), 'administrative_area_level_3')) %>%
+    filter(row_number() == 1) %>%
+    pull(short_name)
+  
+  if (length(name_attempt) > 0)
+    return(name_attempt)
+  
+  geocoded_location[["results"]] %>%
+    as_tibble() %>%
+    select(address_components) %>%
+    unnest(address_components) %>%
+    filter(str_detect(as.character(types), 'postal_town')) %>%
+    filter(row_number() == 1) %>%
+    pull(short_name)
 }

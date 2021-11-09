@@ -1,4 +1,4 @@
-nrolibrary(tidyverse)
+library(tidyverse)
 library(sf)
 library(leaflet)
 library(rvest)
@@ -7,7 +7,7 @@ library(glue)
 library(lubridate)
 
 message_limit <- 100
-pg_takeoff_size <- 1000
+pg_takeoff_size <- 2000
 
 if(month(now()) %in% c(10,11,12,1,2)){
   xc_milestone_interval <- 10
@@ -18,7 +18,6 @@ if(month(now()) %in% c(10,11,12,1,2)){
 source("functions/functions.R")
 
 sites <- read_csv("sites_clean.csv") %>%
-  filter(is.na(exclude) | !exclude) %>% 
   st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
            crs = 4326)
 
@@ -78,7 +77,7 @@ odb_new_pings <-
   filter(odb_live,!registration2 %in% odb_first_pings$registration2)
 
 odb_first_pings_updated <- odb_first_pings %>%
-  union_all(odb_new_pings)
+    union_all(odb_new_pings)
 
 #------------ Load most recent pings--------------------------------------------
 
@@ -133,8 +132,62 @@ xc_distances <- xc_distances %>%
   ) %>%
   filter(xc_milestones_live > xc_milestones_last)
 
+site_summary <- odb_live %>%
+  mutate(
+    on_xc = ifelse(
+      nearest_site_distance > units::set_units(5000, metre) &
+        ground_speed_kph > 2,
+      1,
+      0
+    ),
+    flying = ifelse(ground_speed_kph > 2, 1, 0)
+  ) %>%
+  group_by(aircraft_type_name,
+           telegram_group_name,
+           telegram_group_id,
+           nearest_site_name) %>%
+  summarise(
+    max_alt = ifelse(sum(flying) - sum(on_xc) > 0,
+                     max(ifelse(
+                       on_xc == 0, alt_feet, NA
+                     ), na.rm = TRUE), NA),
+    avg_alt = ifelse(sum(flying) - sum(on_xc) > 0,
+                     mean(ifelse(
+                       on_xc == 0, alt_feet, NA
+                     ), na.rm = TRUE), NA),
+    flying = sum(flying) - sum(on_xc),
+    parawaiting = sum(ifelse(ground_speed_kph <= 2, 1, 0)),
+    on_xc = sum(on_xc)
+  ) %>% 
+  mutate(summary_text = glue("<b>{nearest_site_name}</b>\n{aircraft_type_name} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'")) %>% 
+  group_by(telegram_group_name, telegram_group_id) %>% 
+  summarise(summary_text = paste0(summary_text, collapse = '\n'))
+
+#bot$sendMessage(chat_id = 96373076, parse_mode = 'HTML', text = glue("Summary at {format(now(), '%H:%M')}\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{site_summary$summary_text[1]}"))
+
 #------------ Send Telegram Messages -------------------------------------------
 
+#Takeoff messages: started moving & gained altitude
+# odb_live %>%
+#   left_join(odb_last_pings, by = "registration2") %>%
+#   filter(ground_speed_kph.y == 0 &
+#            ((ground_speed_kph.x > 6 &
+#            alt.x > alt.y + 30) |
+#            (ground_speed_kph.x > 10))
+#          ) %>%
+#   top_n(message_limit, registration2) %>%
+#   mutate(
+#     telegram_message = glue(
+#       "{aircraft_type_name.x} {registration_label.x} recently took off from {nearest_site_name.y}. Altitude {round(alt_feet.x,0)}' AMSL with ground speed {ground_speed_kph.x}kph https://live.glidernet.org/#c={lat.x},{long.x}&z=13&m=4&s=1&w=0&n=0"
+#     )
+#   ) %>%
+#   filter(!is.na(telegram_group_id.x)) %>%
+#   walk2(
+#     .x = .$telegram_message,
+#     .y = .$telegram_group_id.x,
+#     .f = ~ send_telegram(.x, .y)
+#   )
+# 
 #New trackers
 if (nrow(odb_new_pings) > 0) {
   if (nrow(odb_new_pings) > message_limit) {
@@ -142,7 +195,7 @@ if (nrow(odb_new_pings) > 0) {
   } else {
     odb_new_messages <- odb_new_pings
   }
-  
+
   odb_new_messages %>%
     filter(!nearest_site_name %in% odb_first_pings$nearest_site_name) %>%
     group_by(nearest_site_name) %>% 
@@ -150,41 +203,41 @@ if (nrow(odb_new_pings) > 0) {
     ungroup() %>% 
     mutate(
       telegram_message = glue(
-        "<b>{nearest_site_name}</b>\n{aircraft_type_name} {registration_label} is the first tracker seen since >1 hour ago. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
+        "{aircraft_type_name} {registration_label} is the first PG or HG for >1 hour seen at {nearest_site_name}. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
       )
     ) %>%
-    filter(!is.na(telegram_group_id)) %>% 
-    walk2(
-      .x = .$telegram_message,
-      .y = .$telegram_group_id,
-      .f = ~ send_telegram(.x, .y)
-    )
+    filter(!is.na(telegram_group_id))
+    # walk2(
+    #   .x = .$telegram_message,
+    #   .y = .$telegram_group_id,
+    #   .f = ~ send_telegram(.x, .y)
+    # )
 }
-
-#XC Distances
-xc_distances %>%
-  left_join(odb_live, by = "registration2") %>%
-  left_join(select(
-    odb_first_pings_updated,
-    registration2,
-    nearest_site_name,
-    telegram_group_id
-  ),
-  by = "registration2") %>%
-  top_n(message_limit, registration2) %>%
-  rowwise() %>%
-  mutate(location_name_live = geocode_location(lat = lat_live, long = long_live)) %>%
-  mutate(
-    telegram_message = glue(
-      "{aircraft_type_name} {registration_label} is on XC from <b>{nearest_site_name.y}</b>, passing {location_name_live} at {distance_live}km. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
-    )
-  ) %>%
-  filter(!is.na(telegram_group_id.y)) %>%
-  walk2(
-    .x = .$telegram_message,
-    .y = .$telegram_group_id.y,
-    .f = ~ send_telegram(.x, .y)
-  )
+# 
+# #XC Distances
+# xc_distances %>%
+#   left_join(odb_live, by = "registration2") %>%
+#   left_join(select(
+#     odb_first_pings_updated,
+#     registration2,
+#     nearest_site_name,
+#     telegram_group_id
+#   ),
+#   by = "registration2") %>%
+#   top_n(message_limit, registration2) %>%
+#   rowwise() %>%
+#   mutate(location_name_live = geocode_location(lat = lat_live, long = long_live)) %>%
+#   mutate(
+#     telegram_message = glue(
+#       "{aircraft_type_name} {registration_label} is on XC from {nearest_site_name.y}, passing {location_name_live} at {distance_live}km. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
+#     )
+#   ) %>%
+#   filter(!is.na(telegram_group_id.y)) %>%
+#   walk2(
+#     .x = .$telegram_message,
+#     .y = .$telegram_group_id.y,
+#     .f = ~ send_telegram(.x, .y)
+#   )
 
 #------------ record most recent pings -----------------------------------------
 
@@ -196,7 +249,7 @@ odb_last_pings <-
 
 #Remove any device ID that hasn't been seen for an hour
 old_records <- odb_last_pings %>%
-  filter(timestamp <= now() - hours(1)) %>%
+  filter(timestamp <= min(odb_live$timestamp) - hms("01:00:00")) %>%
   pull(registration2)
 
 odb_first_pings_updated <- odb_first_pings_updated %>%
