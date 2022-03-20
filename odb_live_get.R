@@ -1,4 +1,6 @@
-nrolibrary(tidyverse)
+pkgload::load_all(".")
+
+library(tidyverse)
 library(sf)
 library(leaflet)
 library(rvest)
@@ -10,17 +12,20 @@ message_limit <- 100
 pg_takeoff_size <- 1000
 
 if(month(now()) %in% c(10,11,12,1,2)){
-  xc_milestone_interval <- 10
+  xc_milestone_interval <- 15
 } else {
-  xc_milestone_interval <- 25
+  xc_milestone_interval <- 50
 }
 
-source("functions/functions.R")
-
-sites <- read_csv("sites_clean.csv") %>%
+sites <- read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_sites/main/sites.csv") %>% 
   filter(is.na(exclude) | !exclude) %>% 
+  select(-exclude, -notes)
+  
+sites <- sites %>% 
   st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
            crs = 4326)
+
+write_csv(sites, "inst/sites_clean.csv")
 
 odb_live <- read_ogn_live() %>% 
   filter(timestamp >= now() - minutes(5))
@@ -92,7 +97,7 @@ if (file.exists("odb_last_pings.RDS")) {
 
 xc_distances <-
   select(odb_first_pings_updated, registration2, long, lat)  %>%
-  left_join(select(odb_last_pings, registration2, long, lat), by = "registration2") %>%
+  left_join(select(odb_last_pings, registration2, long, lat, alt_feet), by = "registration2") %>%
   rename(
     long_first = long.x,
     lat_first = lat.x,
@@ -100,7 +105,7 @@ xc_distances <-
     lat_last = lat.y
   ) %>%
   left_join(select(odb_live, registration2, long, lat), by = "registration2") %>%
-  rename(long_live = long, lat_live = lat) %>%
+  rename(long_live = long, lat_live = lat, alt_feet_live = alt_feet) %>%
   drop_na()
 
 xc_distances$distance_last <-
@@ -131,7 +136,13 @@ xc_distances <- xc_distances %>%
     xc_milestones_last = floor(distance_last / xc_milestone_interval) * xc_milestone_interval,
     xc_milestones_live = floor(distance_live / xc_milestone_interval) * xc_milestone_interval
   ) %>%
-  filter(xc_milestones_live > xc_milestones_last)
+  filter(xc_milestones_live > xc_milestones_last) %>%
+  rowwise() %>% 
+  mutate(ground_elevation = terrain_elevation(long_live, lat_live),
+         alt_agl_live = alt_feet_live - ground_elevation) %>%
+  filter(alt_agl_live > 300) %>% 
+  ungroup()
+
 
 #------------ Send Telegram Messages -------------------------------------------
 
@@ -143,22 +154,33 @@ if (nrow(odb_new_pings) > 0) {
     odb_new_messages <- odb_new_pings
   }
   
-  odb_new_messages %>%
+  # odb_new_messages %>%
+  #   filter(!nearest_site_name %in% odb_first_pings$nearest_site_name) %>%
+  #   group_by(nearest_site_name) %>% 
+  #   top_n(1, registration2) %>% 
+  #   ungroup() %>% 
+  #   mutate(
+  #     telegram_message = glue(
+  #       "<b>{nearest_site_name}</b>\n{aircraft_type_name} {registration_label} is the first tracker seen since >1 hour ago. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
+  #     )
+  #   ) %>%
+  #   filter(!is.na(telegram_group_id)) %>% 
+  #   walk2(
+  #     .x = .$telegram_message,
+  #     .y = .$telegram_group_id,
+  #     .f = ~ send_telegram(.x, .y)
+  #   )
+  
+  odb_new_messages %>% 
     filter(!nearest_site_name %in% odb_first_pings$nearest_site_name) %>%
-    group_by(nearest_site_name) %>% 
-    top_n(1, registration2) %>% 
-    ungroup() %>% 
-    mutate(
-      telegram_message = glue(
-        "<b>{nearest_site_name}</b>\n{aircraft_type_name} {registration_label} is the first tracker seen since >1 hour ago. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
-      )
-    ) %>%
+    summarise_site_pings() %>% 
     filter(!is.na(telegram_group_id)) %>% 
-    walk2(
-      .x = .$telegram_message,
-      .y = .$telegram_group_id,
-      .f = ~ send_telegram(.x, .y)
-    )
+    mutate(telegram_message = glue("<b>First pilots at site since >1 hour</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{summary_text}")) %>% 
+      walk2(
+        .x = .$telegram_message,
+        .y = .$telegram_group_id,
+        .f = ~ send_telegram(.x, .y)
+      )
 }
 
 #XC Distances
@@ -176,7 +198,7 @@ xc_distances %>%
   mutate(location_name_live = geocode_location(lat = lat_live, long = long_live)) %>%
   mutate(
     telegram_message = glue(
-      "{aircraft_type_name} {registration_label} is on XC from <b>{nearest_site_name.y}</b>, passing {location_name_live} at {distance_live}km. Altitude {round(alt_feet,0)}' AMSL with ground speed {ground_speed_kph}kph https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0"
+      "{aircraft_type_name} {registration_label} is on XC from <b>{nearest_site_name.y}</b>, passing {location_name_live} at {distance_live}km.\n{round(alt_feet,0)}' AMSL ({round(alt_agl_live,0)}' AGL)& {ground_speed_kph}kph\n<a href='https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0'>glidernet map</a>"
     )
   ) %>%
   filter(!is.na(telegram_group_id.y)) %>%

@@ -2,14 +2,15 @@ send_telegram <- function(message = NULL,
                           chat_id = -1001798217889) {
   bot <- telegram.bot::Bot(token = Sys.getenv('TELEGRAM_HILLTOP'))
   
-  bot$sendMessage(chat_id = chat_id,
-                  parse_mode = 'HTML',
-                  text = message)   #chat with Neil 96373076
-  
+  if(isDaylightNow()){
+    bot$sendMessage(chat_id = chat_id,
+                    parse_mode = 'HTML',
+                    text = message)   #chat with Neil 96373076
+  }  
 }
 
 telegram_groups <- function(testing = FALSE) {
-  #testing <- TRUE
+  testing <- TRUE
   if (!testing) {
     return(tibble(
       telegram_group_id = c(
@@ -224,4 +225,77 @@ geocode_location <- function(lat = NULL, long = NULL) {
     filter(str_detect(as.character(types), 'postal_town')) %>%
     filter(row_number() == 1) %>%
     pull(short_name)
+}
+
+terrain_elevation <- function(lon = NULL, lat = NULL){
+  
+  if(length(lon) < 1 | length(lat) < 1) return(NA)
+  
+  df <- data.frame(x = lon, y = lat)
+  
+  elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
+  
+  return(elevation$elevation * 3.28)
+}
+
+summarise_site_pings <- function(pings){
+  pings %>%
+    filter(timestamp >= now() - minutes(10)) %>%
+    mutate(
+      on_xc = ifelse(
+        nearest_site_distance > units::set_units(5000, metre) &
+          ground_speed_kph > 2,
+        1,
+        0
+      ),
+      flying = ifelse(ground_speed_kph > 2, 1, 0)
+    ) %>%
+    group_by(telegram_group_name, telegram_group_id, nearest_site_name) %>%
+    mutate(lat = mean(ifelse(on_xc == 0, lat, NA), na.rm = TRUE),
+           long = mean(ifelse(on_xc == 0, long, NA), na.rm = TRUE)) %>%
+    group_by(
+      aircraft_type_name,
+      telegram_group_name,
+      telegram_group_id,
+      nearest_site_name,
+      lat,
+      long
+    ) %>%
+    summarise(
+      max_alt = ifelse(sum(flying) - sum(on_xc) > 0,
+                       max(
+                         ifelse(on_xc == 0 & flying == 1, alt_feet, NA), na.rm = TRUE
+                       ), NA),
+      avg_alt = ifelse(sum(flying) - sum(on_xc) > 0,
+                       mean(
+                         ifelse(on_xc == 0 & flying == 1, alt_feet, NA), na.rm = TRUE
+                       ), NA),
+      flying = sum(flying) - sum(on_xc),
+      parawaiting = sum(ifelse(ground_speed_kph <= 2, 1, 0)),
+      on_xc = sum(on_xc)
+    ) %>%
+    mutate(
+      summary_text = glue(
+        "{aircraft_type_name} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
+      )
+    ) %>%
+    group_by(telegram_group_name,
+             telegram_group_id,
+             nearest_site_name,
+             lat,
+             long) %>%
+    summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
+    mutate(
+      summary_text = glue(
+        #'<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0">glidernet map</a>'
+        '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">glidernet map</a>'
+      )
+    )
+}
+
+isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708){
+  lubridate::now() <=
+    suncalc::getSunlightTimes(date = date, lat = lat, lon = lon, keep = "sunset")$sunset + lubridate::minutes(30) &
+    lubridate::now() >=
+    suncalc::getSunlightTimes(date = Sys.Date(), lat = lat, lon = lon, keep = "sunrise")$sunrise - lubridate::minutes(30)
 }
