@@ -1,12 +1,6 @@
 pkgload::load_all(".")
 
-library(tidyverse)
-library(sf)
-library(leaflet)
-library(rvest)
-library(telegram.bot)
-library(glue)
-library(lubridate)
+Sys.setenv(pg_alerts_live = FALSE)
 
 message_limit <- 100
 pg_takeoff_size <- 1000
@@ -24,8 +18,6 @@ sites <- readr::read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_si
 sites <- sites %>% 
   sf::st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
            crs = 4326)
-
-readr::write_csv(sites, "inst/sites_clean.csv")
 
 odb_live <- read_ogn_live() %>% 
   dplyr::filter(timestamp >= now() - lubridate::minutes(5))

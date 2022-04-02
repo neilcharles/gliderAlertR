@@ -18,4 +18,12 @@ Imports:
     lubridate,
     units,
     tidyr,
-    telegram.bot
+    telegram.bot,
+    tibble,
+    xml2,
+    rvest,
+    glue,
+    googleway,
+    stringr,
+    elevatr,
+    suncalc
