@@ -290,7 +290,6 @@ summarise_site_pings <- function(pings){
     dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
     dplyr::mutate(
       summary_text = glue::glue(
-        #'<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0">glidernet map</a>'
         '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
       )
     )
