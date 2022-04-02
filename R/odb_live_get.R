@@ -94,14 +94,14 @@ odb_live_get <- function(){
   
   xc_distances <-
     dplyr::select(odb_first_pings_updated, registration2, device_id, long, lat, registration_label)  %>%
-    dplyr::left_join(select(odb_last_pings, registration2, long, lat), by = "registration2") %>%
+    dplyr::left_join(dplyr::select(odb_last_pings, registration2, long, lat), by = "registration2") %>%
     dplyr::rename(
       long_first = long.x,
       lat_first = lat.x,
       long_last = long.y,
       lat_last = lat.y
     ) %>%
-    dplyr::left_join(select(odb_live, registration2, long, lat, alt_feet), by = "registration2") %>%
+    dplyr::left_join(dplyr::select(odb_live, registration2, long, lat, alt_feet), by = "registration2") %>%
     dplyr::rename(long_live = long, lat_live = lat, alt_feet_live = alt_feet) %>%
     tidyr::drop_na()
   
@@ -166,7 +166,7 @@ odb_live_get <- function(){
   #XC Distances
   xc_distances %>%
     dplyr::left_join(odb_live, by = "registration2") %>%
-    dplyr::left_join(select(
+    dplyr::left_join(dplyr::select(
       odb_first_pings_updated,
       registration2,
       nearest_site_name,
