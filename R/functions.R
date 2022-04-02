@@ -10,8 +10,8 @@ send_telegram <- function(message = NULL,
   }  
 }
 
-telegram_groups <- function(testing = FALSE) {
-  testing <- TRUE
+telegram_groups <- function() {
+  if(!Sys.getenv("PG_ALERTS_LIVE")==TRUE) testing <- TRUE
   if (!testing) {
     return(tibble(
       telegram_group_id = c(
