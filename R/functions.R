@@ -5,6 +5,7 @@ send_telegram <- function(message = NULL,
   if(isDaylightNow()){
     bot$sendMessage(chat_id = chat_id,
                     parse_mode = 'HTML',
+                    disable_web_page_preview = TRUE,
                     text = message)   #chat with Neil 96373076
   }  
 }
@@ -14,7 +15,7 @@ telegram_groups <- function(testing = FALSE) {
   if (!testing) {
     return(tibble(
       telegram_group_id = c(
-        -1001688067917,-1001545184005,-1001226015011,-1001750937053,-1001757520671,-1001577094376,-1001679816287,-1001691078874,-1001690641916,-1001798217889,-1001768573848,-1001624842375,-1001571452843,-1001677231927,-1001719738514
+        -1001688067917,-1001545184005,-1001226015011,-1001750937053,-1001757520671,-1001577094376,-1001679816287,-1001691078874,-1001690641916,-1001798217889,-1001768573848,-1001624842375,-1001571452843,-1001677231927,-1001719738514,-1001765135861
       ),
       telegram_group_name = c(
         "Borders",
@@ -31,13 +32,14 @@ telegram_groups <- function(testing = FALSE) {
         "South Scotland & Grampian",
         "South Wales",
         "South West",
-        "West"
+        "West",
+        "Dunstable"
       )
     ))
   } else {
     return(tibble(
       telegram_group_id = c(
-        96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076
+        96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076
       ),
       telegram_group_name = c(
         "Borders",
@@ -54,7 +56,8 @@ telegram_groups <- function(testing = FALSE) {
         "South Scotland & Grampian",
         "South Wales",
         "South West",
-        "West"
+        "West",
+        "Dunstable"
       )
     ))
   }
@@ -228,14 +231,14 @@ geocode_location <- function(lat = NULL, long = NULL) {
 }
 
 terrain_elevation <- function(lon = NULL, lat = NULL){
-  
+      
   if(length(lon) < 1 | length(lat) < 1) return(NA)
   
   df <- data.frame(x = lon, y = lat)
   
   elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
   
-  return(elevation$elevation * 3.28)
+  return(as.numeric(elevation$elevation) * 3.28)
 }
 
 summarise_site_pings <- function(pings){
@@ -288,7 +291,7 @@ summarise_site_pings <- function(pings){
     mutate(
       summary_text = glue(
         #'<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0">glidernet map</a>'
-        '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">glidernet map</a>'
+        '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
       )
     )
 }
@@ -298,4 +301,8 @@ isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708)
     suncalc::getSunlightTimes(date = date, lat = lat, lon = lon, keep = "sunset")$sunset + lubridate::minutes(30) &
     lubridate::now() >=
     suncalc::getSunlightTimes(date = Sys.Date(), lat = lat, lon = lon, keep = "sunrise")$sunrise - lubridate::minutes(30)
+}
+
+message_everyone <- function(message){
+  purrr::walk(.x = telegram_groups()$telegram_group_id, .f = ~ send_telegram(message, .x))
 }

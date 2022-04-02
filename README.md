@@ -4,6 +4,6 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of glider_alertR is to ...
+Code that powers paragliding text alerts at https://alerts.hilltop-analytics.com/
 
 [news](NEWS.md)

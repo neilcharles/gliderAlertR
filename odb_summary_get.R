@@ -23,7 +23,7 @@ if (nrow(odb_last_pings) > 0) {
     summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
     walk2(
       .x = glue(
-        "<b>Summary at {format(now(), '%H:%M')}</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{.$summary_text}"
+        "<b>Summary at {format(lubridate::with_tz(now(), tzone = 'Europe/London'), '%H:%M')}</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{.$summary_text}"
       ),
       .y = .$telegram_group_id,
       .f = ~ send_telegram(.x, .y)
