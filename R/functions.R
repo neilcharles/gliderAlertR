@@ -10,10 +10,10 @@ send_telegram <- function(message = NULL,
   }  
 }
 
-telegram_groups <- function(testing = FALSE) {
-  testing <- TRUE
+telegram_groups <- function() {
+  if(!Sys.getenv("PG_ALERTS_LIVE")==TRUE) testing <- TRUE
   if (!testing) {
-    return(tibble(
+    return(tibble::tibble(
       telegram_group_id = c(
         -1001688067917,-1001545184005,-1001226015011,-1001750937053,-1001757520671,-1001577094376,-1001679816287,-1001691078874,-1001690641916,-1001798217889,-1001768573848,-1001624842375,-1001571452843,-1001677231927,-1001719738514,-1001765135861
       ),
@@ -37,7 +37,7 @@ telegram_groups <- function(testing = FALSE) {
       )
     ))
   } else {
-    return(tibble(
+    return(tibble::tibble(
       telegram_group_id = c(
         96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076
       ),
@@ -66,7 +66,7 @@ telegram_groups <- function(testing = FALSE) {
 
 
 aircraft_codes <- function() {
-  tibble(
+  tibble::tibble(
     aircraft_type_code = c(
       '0',
       '1',
@@ -152,7 +152,7 @@ read_ogn_live <- function() {
     ) %>%
     dplyr::left_join(aircraft_codes(), by = "aircraft_type_code") %>%
     tidyr::replace_na(list(aircraft_type_name = 'Possible PG or HG')) %>%
-    mutate(
+    dplyr::mutate(
       registration_label = ifelse(
         is.na(registration) |
           registration == registration2 |
@@ -200,34 +200,34 @@ geocode_location <- function(lat = NULL, long = NULL) {
   #geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]
   
   name_attempt <- geocoded_location[["results"]] %>%
-    as_tibble() %>%
-    select(address_components) %>%
-    unnest(address_components) %>%
-    filter(str_detect(as.character(types), 'locality')) %>%
-    filter(row_number() == 1) %>%
-    pull(short_name)
+    tibble::as_tibble() %>%
+    dplyr::select(address_components) %>%
+    tidyr::unnest(address_components) %>%
+    dplyr::filter(stringr::str_detect(as.character(types), 'locality')) %>%
+    dplyr::filter(dplyr::row_number() == 1) %>%
+    dplyr::pull(short_name)
   
   if (length(name_attempt) > 0)
     return(name_attempt)
   
   name_attempt <- geocoded_location[["results"]] %>%
-    as_tibble() %>%
-    select(address_components) %>%
-    unnest(address_components) %>%
-    filter(str_detect(as.character(types), 'administrative_area_level_3')) %>%
-    filter(row_number() == 1) %>%
-    pull(short_name)
+    tibble::as_tibble() %>%
+    dplyr::select(address_components) %>%
+    tidyr::unnest(address_components) %>%
+    dplyr::filter(stringr::str_detect(as.character(types), 'administrative_area_level_3')) %>%
+    dplyr::filter(dplyr::row_number() == 1) %>%
+    dplyr::pull(short_name)
   
   if (length(name_attempt) > 0)
     return(name_attempt)
   
   geocoded_location[["results"]] %>%
-    as_tibble() %>%
-    select(address_components) %>%
-    unnest(address_components) %>%
-    filter(str_detect(as.character(types), 'postal_town')) %>%
-    filter(row_number() == 1) %>%
-    pull(short_name)
+    tibble::as_tibble() %>%
+    dplyr::select(address_components) %>%
+    tidyr::unnest(address_components) %>%
+    dplyr::filter(stringr::str_detect(as.character(types), 'postal_town')) %>%
+    dplyr::filter(dplyr::row_number() == 1) %>%
+    dplyr::pull(short_name)
 }
 
 terrain_elevation <- function(lon = NULL, lat = NULL){
@@ -243,8 +243,8 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 
 summarise_site_pings <- function(pings){
   pings %>%
-    filter(timestamp >= now() - minutes(10)) %>%
-    mutate(
+    dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
+    dplyr::mutate(
       on_xc = ifelse(
         nearest_site_distance > units::set_units(5000, metre) &
           ground_speed_kph > 2,
@@ -253,10 +253,10 @@ summarise_site_pings <- function(pings){
       ),
       flying = ifelse(ground_speed_kph > 2, 1, 0)
     ) %>%
-    group_by(telegram_group_name, telegram_group_id, nearest_site_name) %>%
-    mutate(lat = mean(ifelse(on_xc == 0, lat, NA), na.rm = TRUE),
+    dplyr::group_by(telegram_group_name, telegram_group_id, nearest_site_name) %>%
+    dplyr::mutate(lat = mean(ifelse(on_xc == 0, lat, NA), na.rm = TRUE),
            long = mean(ifelse(on_xc == 0, long, NA), na.rm = TRUE)) %>%
-    group_by(
+    dplyr::group_by(
       aircraft_type_name,
       telegram_group_name,
       telegram_group_id,
@@ -264,7 +264,7 @@ summarise_site_pings <- function(pings){
       lat,
       long
     ) %>%
-    summarise(
+    dplyr::summarise(
       max_alt = ifelse(sum(flying) - sum(on_xc) > 0,
                        max(
                          ifelse(on_xc == 0 & flying == 1, alt_feet, NA), na.rm = TRUE
@@ -277,19 +277,19 @@ summarise_site_pings <- function(pings){
       parawaiting = sum(ifelse(ground_speed_kph <= 2, 1, 0)),
       on_xc = sum(on_xc)
     ) %>%
-    mutate(
-      summary_text = glue(
+    dplyr::mutate(
+      summary_text = glue::glue(
         "{aircraft_type_name} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
       )
     ) %>%
-    group_by(telegram_group_name,
+    dplyr::group_by(telegram_group_name,
              telegram_group_id,
              nearest_site_name,
              lat,
              long) %>%
-    summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
-    mutate(
-      summary_text = glue(
+    dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
+    dplyr::mutate(
+      summary_text = glue::glue(
         #'<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://live.glidernet.org/#c={lat},{long}&z=13&m=4&s=1&w=0&n=0">glidernet map</a>'
         '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
       )
@@ -297,12 +297,21 @@ summarise_site_pings <- function(pings){
 }
 
 isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708){
-  lubridate::now() <=
+  lubridate::with_tz(lubridate::now(), tzone = 'Europe/London') <=
     suncalc::getSunlightTimes(date = date, lat = lat, lon = lon, keep = "sunset")$sunset + lubridate::minutes(30) &
-    lubridate::now() >=
+    lubridate::with_tz(lubridate::now(), tzone = 'Europe/London') >=
     suncalc::getSunlightTimes(date = Sys.Date(), lat = lat, lon = lon, keep = "sunrise")$sunrise - lubridate::minutes(30)
 }
 
+#' Send a broadcast message to all telegram groups
+#'
+#' @param message 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' #message_everyone("The alerts app has been updated")
 message_everyone <- function(message){
   purrr::walk(.x = telegram_groups()$telegram_group_id, .f = ~ send_telegram(message, .x))
 }

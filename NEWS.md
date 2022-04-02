@@ -10,14 +10,13 @@
 - Switched map links from glidernet to Glide and Seek, which has nicer maps, shows glider tracks if you click on a glider, and allows to link directly to an aircraft by its ID, so clicking an XC alert link will take you to a pilot's current position, even if they've moved since the alert was sent. Note that links to pilots on XC will display at zoom level 9 and  need to be manually zoomed in after clicking the link. A query has been raised with gliderradar devs for possibility of increasing zoom on direct links to glider ID's
 - Dunstable club sites have been moved to a new Telegram group 'Dunstable' to separate them from the South East group
 - *All groups* message broadcast function added to be used for update news etc.
-- Special celebratory message text when flights cross 100km boundaries.
 - Fixed local time issue in summary alerts so that messages report BST properly
-- Fixed altitude error on XC alerts where quoted altitude was being taken from previous set of pings, not live position
+- Fixed altitude error on XC distance alerts where the quoted altitude was being taken from previous set of pings, not live position
 
 ### Notes
 
-- There has been one case of alerts sending duplicate XC messages, because two pilots were flying XC together and one had borrowed a FLARM device from the other. This would also happen if a single pilot flew with two FLARM devices, or a FLARM device and an OGN mobile phone tracker. Left unchanged for now but if it turns out to be a frequent issue, gaggles may be grouped into a single alert message for version 1.2
+- There has been one case of alerts sending duplicate XC messages, because two pilots were flying XC together and one had borrowed a FLARM device from the other. This would also happen if a single pilot flew with two FLARM devices, or with a FLARM device and an OGN mobile phone tracker. Left unchanged for now but if it turns out to be a frequent issue, gaggles may be grouped into a single alert message for version 1.2
 
-### Version 1.0
+## Version 1.0
 
 - Initial working release
