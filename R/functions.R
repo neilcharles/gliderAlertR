@@ -243,7 +243,7 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 
 summarise_site_pings <- function(pings){
   pings %>%
-    dplyr::filter(timestamp >= now() - minutes(10)) %>%
+    dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(
       on_xc = ifelse(
         nearest_site_distance > units::set_units(5000, metre) &
@@ -303,6 +303,15 @@ isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708)
     suncalc::getSunlightTimes(date = Sys.Date(), lat = lat, lon = lon, keep = "sunrise")$sunrise - lubridate::minutes(30)
 }
 
+#' Send a broadcast message to all telegram groups
+#'
+#' @param message 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' #message_everyone("The alerts app has been updated")
 message_everyone <- function(message){
   purrr::walk(.x = telegram_groups()$telegram_group_id, .f = ~ send_telegram(message, .x))
 }

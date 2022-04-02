@@ -1,9 +1,16 @@
+#' Send Live Alerts and log positions
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' #odb_live_get()
 odb_live_get <- function(){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
   
-  if(lubridate::month(now()) %in% c(10,11,12,1,2)){
+  if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
     xc_milestone_interval <- 15
   } else {
     xc_milestone_interval <- 25
@@ -18,7 +25,7 @@ odb_live_get <- function(){
              crs = 4326)
   
   odb_live <- read_ogn_live() %>% 
-    dplyr::filter(timestamp >= now() - lubridate::minutes(5))
+    dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(5))
   
   #----------- Load first pings --------------------------------------------------
   
@@ -148,7 +155,7 @@ odb_live_get <- function(){
       dplyr::filter(!nearest_site_name %in% odb_first_pings$nearest_site_name) %>%
       summarise_site_pings() %>% 
       dplyr::filter(!is.na(telegram_group_id)) %>% 
-      dplyr::mutate(telegram_message = glue("<b>First pilots at site since >1 hour</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{summary_text}")) %>% 
+      dplyr::mutate(telegram_message = glue::glue("<b>First pilots at site since >1 hour</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{summary_text}")) %>% 
         purrr::walk2(
           .x = .$telegram_message,
           .y = .$telegram_group_id,
@@ -157,7 +164,7 @@ odb_live_get <- function(){
   }
   
   #XC Distances
-  test <- xc_distances %>%
+  xc_distances %>%
     dplyr::left_join(odb_live, by = "registration2") %>%
     dplyr::left_join(select(
       odb_first_pings_updated,
@@ -170,11 +177,11 @@ odb_live_get <- function(){
     dplyr::rowwise() %>%
     dplyr::mutate(location_name_live = geocode_location(lat = lat_live, long = long_live)) %>%
     dplyr::mutate(
-      telegram_message = glue(
-        "{aircraft_type_name} {registration_label.x} is on XC from <b>{nearest_site_name.y}</b>, passing {location_name_live} at {distance_live}km.\n{round(alt_feet,0)}' AMSL ({round(alt_agl_live,0)}' AGL) & {ground_speed_kph}kph\n<a href='https://glideandseek.com?aircraft={device_id}'>GlideAndSeek Map</a>"
+      telegram_message = glue::glue(
+        "{aircraft_type_name} {registration_label.x} is on XC from <b>{nearest_site_name.y}</b>, passing {location_name_live} at {distance_live}km.\n{round(alt_feet,0)}' AMSL ({round(alt_agl_live,0)}' AGL) & {ground_speed_kph}kph\n<a href='https://glideandseek.com?aircraft={device_id.x}'>GlideAndSeek Map</a>"
       )
     ) %>%
-    dplyr::filter(device_id != 0) %>% 
+    dplyr::filter(device_id.x != 0) %>% 
     dplyr::filter(!is.na(telegram_group_id.y)) %>%
     purrr::walk2(
       .x = .$telegram_message,
@@ -192,7 +199,7 @@ odb_live_get <- function(){
   
   #Remove any device ID that hasn't been seen for an hour
   old_records <- odb_last_pings %>%
-    dplyr::filter(timestamp <= now() - hours(1)) %>%
+    dplyr::filter(timestamp <= lubridate::now() - lubridate::hours(1)) %>%
     dplyr::pull(registration2)
   
   odb_first_pings_updated <- odb_first_pings_updated %>%

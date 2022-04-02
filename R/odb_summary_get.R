@@ -1,3 +1,10 @@
+#' Send Summary Alerts
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' #odb_summary_get()
 odb_summary_get <- function(){
   
   if (file.exists("odb_last_pings.RDS")) {
