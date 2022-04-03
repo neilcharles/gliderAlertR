@@ -8,7 +8,7 @@
 odb_summary_get <- function(){
   
   if (file.exists("odb_last_pings.RDS")) {
-    odb_last_pings <- read_rds("odb_last_pings.RDS")
+    odb_last_pings <- readr::read_rds("odb_last_pings.RDS")
   } else {
     return(NULL)
   }
