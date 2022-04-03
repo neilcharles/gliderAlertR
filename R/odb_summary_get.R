@@ -13,6 +13,8 @@ odb_summary_get <- function(){
     return(NULL)
   }
   
+  odb_last_pings$geometry <- NULL
+  
   if (nrow(odb_last_pings) > 0) {
     site_summary <- odb_last_pings %>%
       summarise_site_pings() %>% 
