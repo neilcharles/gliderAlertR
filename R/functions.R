@@ -1,8 +1,9 @@
 send_telegram <- function(message = NULL,
-                          chat_id = -1001798217889) {
+                          chat_id = -1001798217889,
+                          override_daylight = FALSE) {
   bot <- telegram.bot::Bot(token = Sys.getenv('TELEGRAM_HILLTOP'))
   
-  if(isDaylightNow()){
+  if(isDaylightNow() | override_daylight){
     bot$sendMessage(chat_id = chat_id,
                     parse_mode = 'HTML',
                     disable_web_page_preview = TRUE,
@@ -11,7 +12,7 @@ send_telegram <- function(message = NULL,
 }
 
 telegram_groups <- function() {
-  if(!Sys.getenv("PG_ALERTS_LIVE")==TRUE) testing <- TRUE
+  if(Sys.getenv("PG_ALERTS_LIVE")==TRUE) testing <- FALSE else testing <- TRUE
   if (!testing) {
     return(tibble::tibble(
       telegram_group_id = c(
@@ -311,6 +312,6 @@ isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708)
 #'
 #' @examples
 #' #message_everyone("The alerts app has been updated")
-message_everyone <- function(message){
-  purrr::walk(.x = telegram_groups()$telegram_group_id, .f = ~ send_telegram(message, .x))
+message_everyone <- function(message, override_daylight){
+  purrr::walk(.x = telegram_groups()$telegram_group_id, .f = ~ send_telegram(message, .x, override_daylight))
 }
