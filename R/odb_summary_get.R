@@ -16,10 +16,10 @@ odb_summary_get <- function(){
   if (nrow(odb_last_pings) > 0) {
     site_summary <- odb_last_pings %>%
       summarise_site_pings() %>% 
-      group_by(telegram_group_name, telegram_group_id) %>%
-      summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
-      walk2(
-        .x = glue(
+      dplyr::group_by(telegram_group_name, telegram_group_id) %>%
+      dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
+      purrr::walk2(
+        .x = glue::glue(
           "<b>Summary at {format(lubridate::with_tz(lubridate::now(), tzone = 'Europe/London'), '%H:%M')}</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{.$summary_text}"
         ),
         .y = .$telegram_group_id,
