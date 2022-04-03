@@ -85,7 +85,7 @@ odb_live_get <- function(){
   #------------ Load most recent pings--------------------------------------------
   
   if (file.exists("odb_last_pings.RDS")) {
-    odb_last_pings <- read_rds("odb_last_pings.RDS")
+    odb_last_pings <- readr::read_rds("odb_last_pings.RDS")
   } else {
     odb_last_pings <- odb_live[0, ]
   }
