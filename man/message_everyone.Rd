@@ -4,7 +4,7 @@
 \alias{message_everyone}
 \title{Send a broadcast message to all telegram groups}
 \usage{
-message_everyone(message)
+message_everyone(message, override_daylight)
 }
 \arguments{
 \item{message}{}
