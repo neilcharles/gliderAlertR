@@ -237,7 +237,14 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
   
   df <- data.frame(x = lon, y = lat)
   
-  elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
+  tryCatch(
+    expr = {
+      elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
+    },
+    error = function(e){
+      return(0)
+    }
+  )
   
   return(as.numeric(elevation$elevation) * 3.28)
 }
