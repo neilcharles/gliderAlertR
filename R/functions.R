@@ -237,11 +237,7 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
   
   df <- data.frame(x = lon, y = lat)
   
-  print(df)
-  
-  elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
-  
-  print(elevation)
+  elevation <- elevatr::get_elev_point(df, src="aws", prj = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", overwrite = FALSE, z = 14)
   
   tryCatch(
     expr = {
