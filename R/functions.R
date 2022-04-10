@@ -251,6 +251,7 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 }
 
 summarise_site_pings <- function(pings){
+  
   pings %>%
     dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(
@@ -286,6 +287,7 @@ summarise_site_pings <- function(pings){
       parawaiting = sum(ifelse(ground_speed_kph <= 2, 1, 0)),
       on_xc = sum(on_xc)
     ) %>%
+    dplyr::filter(flying > 0 | parawaiting > 0) %>% 
     dplyr::mutate(
       summary_text = glue::glue(
         "{aircraft_type_name} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
