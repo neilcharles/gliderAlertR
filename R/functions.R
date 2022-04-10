@@ -242,7 +242,7 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
       elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
     },
     error = function(e){
-      elevation <- 0
+      elevation <- tibble::tibble(elevation = 0)
     }
   )
   
