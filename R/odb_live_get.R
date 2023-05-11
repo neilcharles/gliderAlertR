@@ -43,6 +43,7 @@ odb_live_get <- function(){
     dplyr::filter(
       nearest_site_distance <= units::set_units(pg_takeoff_size, metre)
       & ground_speed_kph <= 100
+      & substr(registration, 1, 2) != "G-"
       & aircraft_type_name %in% c("Paraglider", "Hang glider", "Possible PG or HG", "", NA)
     )
 
