@@ -2,13 +2,13 @@ send_telegram <- function(message = NULL,
                           chat_id = -1001798217889,
                           override_daylight = FALSE) {
   bot <- telegram.bot::Bot(token = Sys.getenv('TELEGRAM_HILLTOP'))
-  
+
   if(isDaylightNow() | override_daylight){
     bot$sendMessage(chat_id = chat_id,
                     parse_mode = 'HTML',
                     disable_web_page_preview = TRUE,
                     text = message)   #chat with Neil 96373076
-  }  
+  }
 }
 
 telegram_groups <- function() {
@@ -62,7 +62,7 @@ telegram_groups <- function() {
       )
     ))
   }
-  
+
 }
 
 
@@ -115,7 +115,7 @@ read_ogn_live <- function() {
     rvest::html_attr("a") %>%
     tibble::as_tibble() %>%
     tidyr::separate(value, as.character(c(1:14)), sep = ",")
-  
+
   names(odb_live) <-
     c(
       "lat",
@@ -133,7 +133,7 @@ read_ogn_live <- function() {
       "device_id",
       "registration2"
     )
-  
+
   odb_live <- odb_live %>%
     dplyr::mutate(
       across(
@@ -148,7 +148,7 @@ read_ogn_live <- function() {
         ),
         as.numeric
       ),
-      timestamp = lubridate::today() + lubridate::hms(timestamp),
+      timestamp = lubridate::force_tz(lubridate::today() + lubridate::hms(timestamp), "UTC"),
       alt_feet = alt * 3.28
     ) %>%
     dplyr::left_join(aircraft_codes(), by = "aircraft_type_code") %>%
@@ -163,7 +163,7 @@ read_ogn_live <- function() {
         glue::glue("'{registration}'")
       )
     )
-  
+
   odb_live
 }
 
@@ -172,34 +172,34 @@ get_site_distances <- function(odb_live = NULL, sites = NULL) {
   sites_sf <-
     sites %>% sf::st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
                            crs = 4326)
-  
+
   odb_live_sf <- odb_live %>%
     sf::st_as_sf(coords = c("long", "lat"), crs = 4326)
-  
+
   nearest_site_index <- odb_live_sf %>%
     sf::st_nearest_feature(sites_sf)
-  
+
   odb_live_sf$nearest_site_name <-
     sites_sf$takeoff_name[nearest_site_index]
-  
+
   odb_live_sf$nearest_site_distance <- odb_live_sf %>%
     sf::st_distance(sites_sf[nearest_site_index, ], by_element = TRUE)
-  
+
   odb_live_sf
-  
+
 }
 
 geocode_location <- function(lat = NULL, long = NULL) {
   if (length(lat) == 0 | length(long) == 0)
     return(NA)
-  
+
   googleway::set_key(Sys.getenv('GOOGLE_MAPS'))
-  
+
   geocoded_location <-
     googleway::google_reverse_geocode(c(lat, long))
-  
+
   #geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]
-  
+
   name_attempt <- geocoded_location[["results"]] %>%
     tibble::as_tibble() %>%
     dplyr::select(address_components) %>%
@@ -207,10 +207,10 @@ geocode_location <- function(lat = NULL, long = NULL) {
     dplyr::filter(stringr::str_detect(as.character(types), 'locality')) %>%
     dplyr::filter(dplyr::row_number() == 1) %>%
     dplyr::pull(short_name)
-  
+
   if (length(name_attempt) > 0)
     return(name_attempt)
-  
+
   name_attempt <- geocoded_location[["results"]] %>%
     tibble::as_tibble() %>%
     dplyr::select(address_components) %>%
@@ -218,10 +218,10 @@ geocode_location <- function(lat = NULL, long = NULL) {
     dplyr::filter(stringr::str_detect(as.character(types), 'administrative_area_level_3')) %>%
     dplyr::filter(dplyr::row_number() == 1) %>%
     dplyr::pull(short_name)
-  
+
   if (length(name_attempt) > 0)
     return(name_attempt)
-  
+
   geocoded_location[["results"]] %>%
     tibble::as_tibble() %>%
     dplyr::select(address_components) %>%
@@ -232,13 +232,13 @@ geocode_location <- function(lat = NULL, long = NULL) {
 }
 
 terrain_elevation <- function(lon = NULL, lat = NULL){
-      
+
   if(length(lon) < 1 | length(lat) < 1) return(NA)
-  
+
   df <- data.frame(x = lon, y = lat)
-  
+
   elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
-  
+
   return(as.numeric(elevation$elevation) * 3.28)
 }
 
@@ -305,7 +305,7 @@ isDaylightNow <- function(date = Sys.Date(), lat = 52.4775215, lon = -1.9336708)
 
 #' Send a broadcast message to all telegram groups
 #'
-#' @param message 
+#' @param message
 #'
 #' @return
 #' @export
