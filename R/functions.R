@@ -257,7 +257,7 @@ summarise_site_pings <- function(pings){
     dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(
       on_xc = ifelse(
-        nearest_site_distance > units::set_units(5000, metre) &
+        distance_live > 5000 &
           ground_speed_kph > 2,
         1,
         0
@@ -285,7 +285,7 @@ summarise_site_pings <- function(pings){
                          ifelse(on_xc == 0 & flying == 1, alt_feet, NA), na.rm = TRUE
                        ), NA),
       flying = sum(flying) - sum(on_xc),
-      parawaiting = sum(ifelse(ground_speed_kph <= 2, 1, 0)),
+      parawaiting = sum(ifelse(on_xc == 0 & flying ==0, 1, 0)),
       on_xc = sum(on_xc)
     ) %>%
     dplyr::mutate(
