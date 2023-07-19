@@ -14,6 +14,7 @@ send_telegram <- function(message = NULL,
 telegram_groups <- function() {
   if(Sys.getenv("PG_ALERTS_LIVE")==TRUE) testing <- FALSE else testing <- TRUE
   if (!testing) {
+    # Live broadcast group ID's
     return(tibble::tibble(
       telegram_group_id = c(
         -1001688067917,-1001545184005,-1001226015011,-1001750937053,-1001757520671,-1001577094376,-1001679816287,-1001691078874,-1001690641916,-1001798217889,-1001768573848,-1001624842375,-1001571452843,-1001677231927,-1001719738514,-1001765135861
@@ -39,6 +40,7 @@ telegram_groups <- function() {
     ))
   } else {
     return(tibble::tibble(
+      # Personal chat group with developer
       telegram_group_id = c(
         96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076,96373076
       ),
@@ -67,6 +69,7 @@ telegram_groups <- function() {
 
 
 aircraft_codes <- function() {
+  # Manual encoding of aircraft type names because OGN API returns a number
   tibble::tibble(
     aircraft_type_code = c(
       '0',
@@ -89,7 +92,7 @@ aircraft_codes <- function() {
     aircraft_type_name = c(
       'Possible PG or HG',
       'Sailplane',
-      #Glider/motor-glider
+      #Glider/motor-glider - Official name replaced with 'sailplane'
       'Tow plane',
       'Helicopter',
       'Parachute',
@@ -109,6 +112,7 @@ aircraft_codes <- function() {
 }
 
 read_ogn_live <- function() {
+  # Reads and formats glider ping information
   odb_live <-
     xml2::read_xml("https://live.glidernet.org/lxml.php?a=0&b=59.6&c=49.8&d=2&e=-11") %>%
     rvest::html_nodes("m") %>%
@@ -168,7 +172,7 @@ read_ogn_live <- function() {
 }
 
 get_site_distances <- function(odb_live = NULL, sites = NULL) {
-  #Ping is in range of a paragliding takeoff
+  #Finds the nearest site for each location in a live pings table
   sites_sf <-
     sites %>% sf::st_as_sf(coords = c("takeoff_lon", "takeoff_lat"),
                            crs = 4326)
@@ -190,6 +194,10 @@ get_site_distances <- function(odb_live = NULL, sites = NULL) {
 }
 
 geocode_location <- function(lat = NULL, long = NULL) {
+
+  # Uses Google Maps API locate the name of a lat long point
+  # Tries a few possibilities in order of preference in case of null for e.g. locality
+
   if (length(lat) == 0 | length(long) == 0)
     return(NA)
 
@@ -232,6 +240,7 @@ geocode_location <- function(lat = NULL, long = NULL) {
 }
 
 terrain_elevation <- function(lon = NULL, lat = NULL){
+  # Get terrain height at a location for calculating height AGL
 
   if(length(lon) < 1 | length(lat) < 1) return(NA)
 
@@ -243,6 +252,7 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 }
 
 summarise_site_pings <- function(pings){
+  # Summarises glider pings table into the string to be sent as a Telegram message
   pings %>%
     dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(

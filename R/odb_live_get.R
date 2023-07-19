@@ -139,7 +139,7 @@ odb_live_get <- function(){
     dplyr::rowwise() %>%
     dplyr::mutate(ground_elevation = terrain_elevation(long_live, lat_live),
            alt_agl_live = alt_feet_live - ground_elevation) %>%
-    dplyr::filter(alt_agl_live > 300) %>%
+    dplyr::filter(alt_agl_live > 100) %>%
     dplyr::ungroup()
 
   #------------ Send Telegram Messages -------------------------------------------
