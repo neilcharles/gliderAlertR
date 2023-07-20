@@ -251,7 +251,8 @@ odb_live_get <- function(){
     dplyr::filter(!registration2 %in% old_records)
 
   odb_last_pings <- odb_last_pings |>
-    dplyr::filter(!registration2 %in% old_records)
+    dplyr::filter(!registration2 %in% old_records) |>
+    tidyr::replace_na(list(distance_live = 0))
 
   #------------ save pings -------------------------------------------------------
 

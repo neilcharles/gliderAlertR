@@ -252,26 +252,27 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 }
 
 summarise_site_pings <- function(pings){
+
   # Summarises glider pings table into the string to be sent as a Telegram message
   pings %>%
     dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(
       on_xc = ifelse(
-        distance_live > 5000 &
+        distance_live > 5 &
           ground_speed_kph > 2,
         1,
         0
       ),
       flying = ifelse(ground_speed_kph > 2, 1, 0)
     ) %>%
-    dplyr::group_by(telegram_group_name, telegram_group_id, nearest_site_name) %>%
+    dplyr::group_by(telegram_group_name, telegram_group_id, origin_site_name) %>%
     dplyr::mutate(lat = mean(ifelse(on_xc == 0, lat, NA), na.rm = TRUE),
            long = mean(ifelse(on_xc == 0, long, NA), na.rm = TRUE)) %>%
     dplyr::group_by(
       aircraft_type_name,
       telegram_group_name,
       telegram_group_id,
-      nearest_site_name,
+      origin_site_name,
       lat,
       long
     ) %>%
@@ -295,13 +296,13 @@ summarise_site_pings <- function(pings){
     ) %>%
     dplyr::group_by(telegram_group_name,
              telegram_group_id,
-             nearest_site_name,
+             origin_site_name,
              lat,
              long) %>%
     dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) %>%
     dplyr::mutate(
       summary_text = glue::glue(
-        '<b>{nearest_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
+        '<b>{origin_site_name}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
       )
     )
 }
