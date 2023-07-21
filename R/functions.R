@@ -245,15 +245,21 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
   if(length(lon) < 1 | length(lat) < 1) return(NA)
 
   df <- data.frame(x = lon, y = lat)
-
-  elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
-
-  return(as.numeric(elevation$elevation) * 3.28)
+  elevation <- elevatr::get_elev_point(df, src="aws", prj = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", overwrite = FALSE, z = 14)
+  
+  tryCatch(
+    expr = {
+      return(as.numeric(elevation$elevation) * 3.28)
+    },
+    error = function(e){
+      return(0)
+    }
+  )
+  
 }
 
 summarise_site_pings <- function(pings){
-
-  # Summarises glider pings table into the string to be sent as a Telegram message
+  
   pings %>%
     dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
     dplyr::mutate(
@@ -289,6 +295,7 @@ summarise_site_pings <- function(pings){
       parawaiting = sum(ifelse(on_xc == 0 & flying ==0, 1, 0)),
       on_xc = sum(on_xc)
     ) %>%
+    dplyr::filter(flying > 0 | parawaiting > 0) %>% 
     dplyr::mutate(
       summary_text = glue::glue(
         "{aircraft_type_name} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
