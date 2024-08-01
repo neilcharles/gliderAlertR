@@ -245,12 +245,20 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
   if(length(lon) < 1 | length(lat) < 1) return(NA)
 
   df <- data.frame(x = lon, y = lat)
-
-  elevation <- elevatr::get_elev_point(df, src="aws", prj = "EPSG:4326", overwrite = FALSE, z = 14)
-
-  return(as.numeric(elevation$elevation) * 3.28)
+  elevation <- elevatr::get_elev_point(df, src="aws", prj = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", overwrite = FALSE, z = 14)
+  
+  tryCatch(
+    expr = {
+      return(as.numeric(elevation$elevation) * 3.28)
+    },
+    error = function(e){
+      return(0)
+    }
+  )
+  
 }
 
+<<<<<<< HEAD
 summarise_site_pings <- function(pings, sites){
 
   site_groups <- sites |>
@@ -261,6 +269,12 @@ summarise_site_pings <- function(pings, sites){
   pings |>
     dplyr::left_join(site_groups, by = c("takeoff_site" = "takeoff_name")) |>
     dplyr::filter(time >= lubridate::now() - lubridate::minutes(10)) |>
+=======
+summarise_site_pings <- function(pings){
+  
+  pings %>%
+    dplyr::filter(timestamp >= lubridate::now() - lubridate::minutes(10)) %>%
+>>>>>>> 5b0ef0bc7280168005c58c47a1e401993e27a13f
     dplyr::mutate(
       on_xc = ifelse(
         xc_distance_cur > 5 &
@@ -293,7 +307,12 @@ summarise_site_pings <- function(pings, sites){
       flying = sum(flying) - sum(on_xc),
       parawaiting = sum(ifelse(on_xc == 0 & flying ==0, 1, 0)),
       on_xc = sum(on_xc)
+<<<<<<< HEAD
     ) |>
+=======
+    ) %>%
+    dplyr::filter(flying > 0 | parawaiting > 0) %>% 
+>>>>>>> 5b0ef0bc7280168005c58c47a1e401993e27a13f
     dplyr::mutate(
       summary_text = glue::glue(
         "{beacon_type} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
