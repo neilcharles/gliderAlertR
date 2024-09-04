@@ -14,12 +14,24 @@ safesky_append_columns <- function(pings = NULL){
     ping_status = rep(NA, nrow(pings)))
 }
 
+#' Reads sites databse from github
+#'
+#' @return
+#' @export
+#'
+#' @examples
 read_sites <- function(){
   readr::read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_sites/main/sites.csv") |>
     dplyr::filter(is.na(exclude) | !exclude) |>
     dplyr::select(-exclude, -notes)
 }
 
+#' Reads data from safesky, updates the cache and sends live telegram alerts
+#'
+#' @return
+#' @export
+#'
+#' @examples
 read_safesky_live <- function(){
 
   pings <- httr::GET(url = 'https://public-api.safesky.app/v1/beacons/?altitude_max=10000&beacon_types=PARA_GLIDER%2CHAND_GLIDER%2CMOTORPLANE&show_grounded=true&viewport=47.4753,-10.4867,59.5851,3.2422',
@@ -206,6 +218,12 @@ safesky_live_get <- function(){
 
 }
 
+#' Sends summary Telegram messages
+#'
+#' @return
+#' @export
+#'
+#' @examples
 safesky_summary_send <- function(){
 
   #---- Load pings or exit -----------------------------------------------------

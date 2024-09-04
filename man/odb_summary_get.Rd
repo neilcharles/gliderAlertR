@@ -6,9 +6,6 @@
 \usage{
 odb_summary_get()
 }
-\value{
-
-}
 \description{
 Send Summary Alerts
 }
