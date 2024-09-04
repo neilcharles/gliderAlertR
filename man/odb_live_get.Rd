@@ -6,9 +6,6 @@
 \usage{
 odb_live_get()
 }
-\value{
-
-}
 \description{
 Send Live Alerts and log positions
 }
