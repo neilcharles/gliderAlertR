@@ -73,7 +73,7 @@ read_safesky_live <- function(){
 safesky_live_get <- function(){
 
   message_limit <- 100
-  pg_takeoff_size <- 10000
+  pg_takeoff_size <- 1000
 
   if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
     xc_milestone_interval <- 15
