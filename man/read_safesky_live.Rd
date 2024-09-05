@@ -2,10 +2,10 @@
 % Please edit documentation in R/safesky.R
 \name{read_safesky_live}
 \alias{read_safesky_live}
-\title{Reads data from safesky, updates the cache and sends live telegram alerts}
+\title{Reads live data from safesky}
 \usage{
 read_safesky_live()
 }
 \description{
-Reads data from safesky, updates the cache and sends live telegram alerts
+Reads live data from safesky
 }

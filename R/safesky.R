@@ -26,7 +26,7 @@ read_sites <- function(){
     dplyr::select(-exclude, -notes)
 }
 
-#' Reads data from safesky, updates the cache and sends live telegram alerts
+#' Reads live data from safesky
 #'
 #' @return
 #' @export
@@ -64,6 +64,12 @@ read_safesky_live <- function(){
 #
 # }
 
+#' Reads data from safesky, updates the cache and sends live telegram alerts
+#'
+#' @return
+#' @export
+#'
+#' @examples
 safesky_live_get <- function(){
 
   message_limit <- 100
