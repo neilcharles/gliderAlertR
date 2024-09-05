@@ -34,7 +34,7 @@ read_sites <- function(){
 #' @examples
 read_safesky_live <- function(){
 
-  pings <- httr::GET(url = 'https://public-api.safesky.app/v1/beacons/?altitude_max=10000&beacon_types=PARA_GLIDER%2CHAND_GLIDER%2CMOTORPLANE&show_grounded=true&viewport=47.4753,-10.4867,59.5851,3.2422',
+  pings <- httr::GET(url = 'https://public-api.safesky.app/v1/beacons/?altitude_max=10000&beacon_types=PARA_GLIDER%2CHAND_GLIDER&show_grounded=true&viewport=47.4753,-10.4867,59.5851,3.2422',
                      httr::add_headers(.headers = c('x-api-key'= Sys.getenv('SAFESKY')))) |>
     httr::content(as="text", encoding = "UTF-8") |>
     jsonlite::fromJSON()
