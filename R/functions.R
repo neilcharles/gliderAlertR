@@ -311,8 +311,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
              telegram_group_id,
              takeoff_site,
              lat,
-             long,
-             on_xc) |>
+             long) |>
     dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) |>
     dplyr::mutate(
       summary_text = glue::glue(
