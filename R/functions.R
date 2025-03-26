@@ -299,7 +299,8 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
                        ), NA),
       flying = sum(flying) - sum(on_xc),
       parawaiting = sum(ifelse(on_xc == 0 & flying ==0, 1, 0)),
-      on_xc = sum(on_xc)
+      on_xc = sum(on_xc),
+      max_xc_distance = max(xc_distance_cur)
     ) %>%
     dplyr::filter(flying > 0 | parawaiting > 0 | on_xc > 0) %>%
     dplyr::mutate(
@@ -307,6 +308,8 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
         "{beacon_type} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
       )
     ) |>
+    dplyr::mutate(summary_text = ifelse(on_xc > 0,
+                                        glue::glue("{summary_text}\nFurthest glider on XC is at {max_xc_distance}km"), summary_text)) |>
     dplyr::group_by(telegram_group_name,
              telegram_group_id,
              takeoff_site,
@@ -316,7 +319,9 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
     dplyr::mutate(
       summary_text = glue::glue(
         # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
-        '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://live.safesky.app/map?lat={lat}&lng={long}&zoom=12.50">Safesky Map</a>'
+        # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://live.safesky.app/map?lat={lat}&lng={long}&zoom=12.50">Map</a>'
+        '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://puretrack.io/?l={lat},{long}&z=14.0">Puretrack</a>'
+
       )
     )
 }
