@@ -72,10 +72,10 @@ read_puretrack_live <- function(){
 
   body_data <- list(
     a  = NULL,
-    b1g = "53.74617",
-    b1l = "60.11401",
-    b2g = "-11.70401",
-    b2l = "48.90203",
+    b1l = "61.74650",
+    b1g = "4.26710",
+    b2l = "47.22574",
+    b2g = "-14.73417",
     # s = "30-z6D_111339,30-z6D_111339",
     o = c(63, 6, 7, 17, 20),
     t = 15,
@@ -118,8 +118,10 @@ read_puretrack_live <- function(){
     dplyr::mutate(
       time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
     ) |>
+    tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0)) |>
     dplyr::mutate(altitude = altitude * 3.28,
                   ground_speed = ground_speed * 1.852)
+
   pings_processed
 
 }
@@ -257,14 +259,19 @@ live_get <- function(pings_source = "puretrack"){
       crs = 4326
     ), by_element = TRUE)
 
+  # Ensure xc vars are numeric for comparison because they're logical on first run due to NA setup
+  pings_all$xc_distance_last = as.numeric(pings_all$xc_distance_last)
+  pings_all$xc_milestones_last = as.numeric(pings_all$xc_milestones_last)
+  pings_all$xc_milestones_cur = as.numeric(pings_all$xc_milestones_cur)
+
   pings_all <- pings_all |>
     dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0),
-                  xc_milestone_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
-                  xc_milestone_cur = floor(xc_milestones_cur / xc_milestone_interval) * xc_milestone_interval
+                  xc_milestones_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
+                  xc_milestones_cur = floor(xc_milestones_cur / xc_milestone_interval) * xc_milestone_interval
     )
 
   pings_xc_milestone <- pings_all |>
-    dplyr::filter(xc_milestone_cur > xc_milestone_last) |>
+    dplyr::filter(xc_milestones_cur > xc_milestones_last) |>
     dplyr::filter(!is.na(call_sign))
 
   summary_text <- summarise_site_pings(pings_all, sites, max_age = 10)
@@ -293,14 +300,12 @@ live_get <- function(pings_source = "puretrack"){
 
   #------------ Send XC Milestone Telegram Messages ----------------------------
 
-  if(nrow(pings_xc_milestone > 0)){
+  if(nrow(pings_xc_milestone) > 0){
     telegram_xc_milestone <- pings_xc_milestone |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
       dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/??k={id}&z=14.0">Puretrack</a>"'))
   }
-
-
 
   #------------ save pings -----------------------------------------------------
 
