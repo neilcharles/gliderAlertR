@@ -206,7 +206,9 @@ geocode_location <- function(lat = NULL, long = NULL) {
   geocoded_location <-
     googleway::google_reverse_geocode(c(lat, long))
 
-  #geocoded_location[["results"]][["address_components"]][[2]][["long_name"]][[2]]
+  if(length(geocoded_location[["results"]])==0){
+    return("_")
+  }
 
   name_attempt <- geocoded_location[["results"]] |>
     tibble::as_tibble() |>
@@ -258,15 +260,22 @@ terrain_elevation <- function(lon = NULL, lat = NULL){
 
 }
 
-summarise_site_pings <- function(pings, sites, max_age = 20){
+add_telegram_groups <- function(pings, sites){
 
   site_groups <- sites |>
     dplyr::select(takeoff_name, telegram_group_name) |>
     dplyr::left_join(telegram_groups(), by = "telegram_group_name")
 
-  # Summarises glider pings table into a string to be sent as a Telegram message
   pings |>
-    dplyr::left_join(site_groups, by = c("takeoff_site" = "takeoff_name")) |>
+    dplyr::left_join(site_groups, by = c("takeoff_site" = "takeoff_name"))
+
+}
+
+summarise_site_pings <- function(pings, sites, max_age = 20){
+
+  pings |>
+    add_telegram_groups(sites) |>
+  # Summarises glider pings table into a string to be sent as a Telegram message
     dplyr::filter(time >= lubridate::now() - lubridate::minutes(max_age)) |>
     dplyr::mutate(
       on_xc = ifelse(
