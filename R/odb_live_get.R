@@ -11,9 +11,9 @@ odb_live_get <- function(){
   pg_takeoff_size <- 100000
 
   if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
-    xc_milestone_interval <- 15
+    xc_milestone_interval <- 20
   } else {
-    xc_milestone_interval <- 25
+    xc_milestone_interval <- 50
   }
 
   sites <- readr::read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_sites/main/sites.csv") |>

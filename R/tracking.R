@@ -1,5 +1,5 @@
 # Appends columns to raw safesky data to store site names etc.
-safesky_append_columns <- function(pings = NULL){
+pings_append_columns <- function(pings = NULL){
   pings |>
     dplyr::mutate(
     lat_origin = rep(NA, nrow(pings)),
@@ -8,6 +8,8 @@ safesky_append_columns <- function(pings = NULL){
     lon_cur = rep(NA, nrow(pings)),
     xc_distance_last = rep(NA, nrow(pings)),
     xc_distance_cur = rep(NA, nrow(pings)),
+    xc_milestones_last = rep(NA, nrow(pings)),
+    xc_milestones_cur = rep(NA, nrow(pings)),
     takeoff_site = rep(NA, nrow(pings)),
     nearest_site = rep(NA, nrow(pings)),
     nearest_site_distance = rep(NA, nrow(pings)),
@@ -60,6 +62,69 @@ read_safesky_live <- function(){
 
 }
 
+#' Reads live data from safesky
+#'
+#' @return
+#' @export
+#'
+#' @examples
+read_puretrack_live <- function(){
+
+  body_data <- list(
+    a  = NULL,
+    b1g = "53.74617",
+    b1l = "60.11401",
+    b2g = "-11.70401",
+    b2l = "48.90203",
+    # s = "30-z6D_111339,30-z6D_111339",
+    o = c(63, 6, 7, 17, 20),
+    t = 15,
+    a = NULL,
+    i = 0,
+    l = TRUE
+  )
+
+  # Convert the data to JSON format
+  json_body_data <- jsonlite::toJSON(body_data, auto_unbox = TRUE)
+
+  pings <- httr::POST(url = 'https://puretrack.io/api/live', httr::add_headers(`Content-Type` = "application/json"), body = json_body_data) |>
+    httr::content(as="text", encoding = "UTF-8") |>
+    jsonlite::fromJSON()
+
+  if(length(pings)==0){
+    return(NULL)
+  }
+
+  pings_processed <- tibble::as_tibble(pings$data) |>
+    dplyr::mutate(unix_timestamp = as.numeric(stringr::str_extract(value, "(?<=T)\\d{10}")),
+                  latitude = as.numeric(stringr::str_extract(value, "(?<=,L)-?\\d+\\.\\d+")),
+                  longitude = as.numeric(stringr::str_extract(value, "(?<=,G)-?\\d+\\.\\d+")),
+                  altitude = as.numeric(stringr::str_extract(value, "(?<=,A)\\d+(?=,)")),
+                  ground_speed = as.numeric(stringr::str_extract(value, "(?<=S)(\\d+(\\.\\d+)?)")),
+                  id = stringr::str_extract(value, "(?<=,K)[^,]+"),
+                  user = stringr::str_extract(value, "(?<=,N)[^,]+"),
+                  user2 = stringr::str_extract(value, "(?<=,B)[^,]+"),
+                  user3 = stringr::str_extract(value, "(?<=,E)[^,]+"),
+                  call_sign = ifelse(is.na(user), ifelse(is.na(user2), user3, user2), user),
+                  beacon_type = stringr::str_extract(value, "(?<=,O)\\d+(?=,)")) |>
+    dplyr::mutate(
+      beacon_type = dplyr::case_when(
+        beacon_type == "6" ~ "Hang glider",
+        beacon_type == "7" ~ "Paraglider",
+        .default = NA
+      )
+    ) |>
+    filter(!is.na(beacon_type)) |>
+    dplyr::mutate(
+      time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
+    ) |>
+    dplyr::mutate(altitude = altitude * 3.28,
+                  ground_speed = ground_speed * 1.852)
+  pings_processed
+
+}
+
+
 # safesky_append_broadcast_groups(pings){
 #
 # }
@@ -70,7 +135,7 @@ read_safesky_live <- function(){
 #' @export
 #'
 #' @examples
-safesky_live_get <- function(){
+live_get <- function(pings_source = "puretrack"){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
@@ -83,7 +148,11 @@ safesky_live_get <- function(){
 
   sites <- read_sites()
 
-  pings_live <- read_safesky_live()
+  if(pings_source=="safesky"){
+    pings_live <- read_safesky_live()
+  } else if (pings_source=="puretrack"){
+    pings_live <- read_puretrack_live()
+  }
 
   if(is.null(pings_live)){
     message("No aircraft found")
@@ -92,7 +161,7 @@ safesky_live_get <- function(){
 
   pings_live <- pings_live |>
     dplyr::filter(time >= lubridate::now() - lubridate::minutes(5)) |>
-    safesky_append_columns() |>
+    pings_append_columns() |>
     dplyr::mutate(
       lat_cur = latitude,
       lon_cur = longitude
@@ -104,7 +173,7 @@ safesky_live_get <- function(){
     pings_cache <- readr::read_rds("pings.RDS")
   } else {
     pings_cache <- pings_live[0, ] |>
-      safesky_append_columns()
+      pings_append_columns()
   }
 
   #------------ Delete old records -----------------------------------------------
@@ -189,11 +258,18 @@ safesky_live_get <- function(){
     ), by_element = TRUE)
 
   pings_all <- pings_all |>
-    dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0))
+    dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0),
+                  xc_milestone_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
+                  xc_milestone_cur = floor(xc_milestones_cur / xc_milestone_interval) * xc_milestone_interval
+    )
+
+  pings_xc_milestone <- pings_all |>
+    dplyr::filter(xc_milestone_cur > xc_milestone_last) |>
+    dplyr::filter(!is.na(call_sign))
 
   summary_text <- summarise_site_pings(pings_all, sites, max_age = 10)
 
-  #------------ Send Telegram Messages -------------------------------------------
+  #------------ Send New Site Telegram Messages --------------------------------
 
   #New trackers
   if (nrow(pings_new) > 0) {
@@ -215,10 +291,18 @@ safesky_live_get <- function(){
     )
   }
 
-  # telegram_new <- telegram_new |>
-  #   mutate(telegram_message = ifelse(on_xc > 0, glue::glue("{telegram_message}\n\nFurthest Glider on XC is at {xxxx}km")))
+  #------------ Send XC Milestone Telegram Messages ----------------------------
 
-  #------------ save pings -------------------------------------------------------
+  if(nrow(pings_xc_milestone > 0)){
+    telegram_xc_milestone <- pings_xc_milestone |>
+      dplyr::filter(!is.na(telegram_group_id)) |>
+      dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
+      dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/??k={id}&z=14.0">Puretrack</a>"'))
+  }
+
+
+
+  #------------ save pings -----------------------------------------------------
 
   readr::write_rds(pings_all, "pings.RDS")
 
@@ -230,7 +314,7 @@ safesky_live_get <- function(){
 #' @export
 #'
 #' @examples
-safesky_summary_send <- function(){
+summary_send <- function(){
 
   #---- Load pings or exit -----------------------------------------------------
   if (file.exists("pings.RDS")) {
@@ -256,6 +340,8 @@ safesky_summary_send <- function(){
   telegram_messages <- summary_text |>
     dplyr::filter(!is.na(telegram_group_id)) |>
     dplyr::mutate(telegram_message = glue::glue("<b>{telegram_group_name} Summary</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{summary_text}"))
+
+  #   mutate(telegram_message = ifelse(on_xc > 0, glue::glue("{telegram_message}\n\nFurthest Glider on XC is at {xxxx}km")))
 
   purrr::walk2(
     .x = telegram_messages$telegram_message,
