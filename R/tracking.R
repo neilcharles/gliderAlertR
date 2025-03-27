@@ -100,6 +100,7 @@ read_puretrack_live <- function(){
                   latitude = as.numeric(stringr::str_extract(value, "(?<=,L)-?\\d+\\.\\d+")),
                   longitude = as.numeric(stringr::str_extract(value, "(?<=,G)-?\\d+\\.\\d+")),
                   altitude = as.numeric(stringr::str_extract(value, "(?<=,A)\\d+(?=,)")),
+                  ground_level = as.numeric(stringr::str_extract(value, "(?<=,g)\\d+(?=,)")),
                   ground_speed = as.numeric(stringr::str_extract(value, "(?<=S)(\\d+(\\.\\d+)?)")),
                   id = stringr::str_extract(value, "(?<=,K)[^,]+"),
                   user = stringr::str_extract(value, "(?<=,N)[^,]+"),
@@ -120,7 +121,10 @@ read_puretrack_live <- function(){
     ) |>
     tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0)) |>
     dplyr::mutate(altitude = altitude * 3.28,
-                  ground_speed = ground_speed * 1.852)
+                  ground_level = ground_level * 3.28,
+                  ground_speed = ground_speed * 1.852,
+                  altitude_agl = altitude - ground_level
+                  )
 
   pings_processed
 
