@@ -257,6 +257,11 @@ live_get <- function(pings_source = "puretrack"){
       crs = 4326
     ), by_element = TRUE)
 
+  # Ensure xc vars are numeric for comparison because they're logical on first run due to NA setup
+  pings_all$xc_distance_last = as.numeric(pings_all$xc_distance_last)
+  pings_all$xc_milestone_last = as.numeric(pings_all$xc_milestone_last)
+  pings_all$xc_milestone_cur = as.numeric(pings_all$xc_milestone_cur)
+
   pings_all <- pings_all |>
     dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0),
                   xc_milestone_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
@@ -293,14 +298,12 @@ live_get <- function(pings_source = "puretrack"){
 
   #------------ Send XC Milestone Telegram Messages ----------------------------
 
-  if(nrow(pings_xc_milestone > 0)){
+  if(nrow(pings_xc_milestone) > 0){
     telegram_xc_milestone <- pings_xc_milestone |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
       dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/??k={id}&z=14.0">Puretrack</a>"'))
   }
-
-
 
   #------------ save pings -----------------------------------------------------
 
