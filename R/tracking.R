@@ -114,7 +114,7 @@ read_puretrack_live <- function(){
         .default = NA
       )
     ) |>
-    filter(!is.na(beacon_type)) |>
+    dplyr::filter(!is.na(beacon_type)) |>
     dplyr::mutate(
       time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
     ) |>
