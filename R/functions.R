@@ -275,7 +275,8 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
         1,
         0
       ),
-      flying = ifelse(ground_speed > 2, 1, 0)
+      flying = ifelse(ground_speed > 2, 1, 0),
+      parawaiting = ifelse(on_xc==0 & flying==0, 1, 0)
     ) |>
     dplyr::group_by(telegram_group_name, telegram_group_id, takeoff_site) |>
     dplyr::mutate(lat = mean(ifelse(on_xc == 0, lat_cur, NA), na.rm = TRUE),
@@ -298,7 +299,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20){
                          ifelse(on_xc == 0 & flying == 1, altitude, NA), na.rm = TRUE
                        ), NA),
       flying = sum(flying) - sum(on_xc),
-      parawaiting = sum(ifelse(on_xc == 0 & flying ==0, 1, 0)),
+      parawaiting = sum(parawaiting, na.rm = TRUE),
       on_xc = sum(on_xc),
       max_xc_distance = max(xc_distance_cur)
     ) %>%
