@@ -106,7 +106,15 @@ read_puretrack_live <- function(){
                   user2 = stringr::str_extract(value, "(?<=,B)[^,]+"),
                   user3 = stringr::str_extract(value, "(?<=,E)[^,]+"),
                   call_sign = ifelse(is.na(user), ifelse(is.na(user2), user3, user2), user),
-                  beacon_type = "paraglider") |>
+                  beacon_type = stringr::str_extract(value, "(?<=,O)\\d+(?=,)")) |>
+    dplyr::mutate(
+      beacon_type = dplyr::case_when(
+        beacon_type == "6" ~ "Hang glider",
+        beacon_type == "7" ~ "Paraglider",
+        .default = NA
+      )
+    ) |>
+    filter(!is.na(beacon_type)) |>
     dplyr::mutate(
       time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
     ) |>
