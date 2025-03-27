@@ -137,15 +137,15 @@ read_puretrack_live <- function(){
 #' @export
 #'
 #' @examples
-live_get <- function(pings_source = "puretrack"){
+live_get <- function(pings_source = "puretrack", milestone_winter = 15, milestone_summer = 50){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
 
   if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
-    xc_milestone_interval <- 15
+    xc_milestone_interval <- milestone_winter
   } else {
-    xc_milestone_interval <- 25
+    xc_milestone_interval <- milestone_summer
   }
 
   sites <- read_sites()
@@ -267,7 +267,7 @@ live_get <- function(pings_source = "puretrack"){
   pings_all <- pings_all |>
     dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0),
                   xc_milestones_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
-                  xc_milestones_cur = floor(xc_milestones_cur / xc_milestone_interval) * xc_milestone_interval
+                  xc_milestones_cur = floor(xc_distance_cur / xc_milestone_interval) * xc_milestone_interval
     )
 
   pings_xc_milestone <- pings_all |>
@@ -302,9 +302,16 @@ live_get <- function(pings_source = "puretrack"){
 
   if(nrow(pings_xc_milestone) > 0){
     telegram_xc_milestone <- pings_xc_milestone |>
+      add_telegram_groups(sites) |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
-      dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/??k={id}&z=14.0">Puretrack</a>"'))
+      dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/?k={id}&z=14.0">Puretrack</a>'))
+
+    purrr::walk2(
+      .x = telegram_xc_milestone$telegram_message,
+      .y = telegram_xc_milestone$telegram_group_id,
+      .f = ~ send_telegram(.x, .y, override_daylight = FALSE)
+    )
   }
 
   #------------ save pings -----------------------------------------------------
