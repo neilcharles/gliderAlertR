@@ -141,7 +141,7 @@ read_puretrack_live <- function(){
 #' @export
 #'
 #' @examples
-live_get <- function(pings_source = "puretrack", milestone_winter = 15, milestone_summer = 50){
+live_get <- function(pings_source = "puretrack", milestone_winter = 15, milestone_summer = 50, logging = FALSE){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
@@ -173,6 +173,17 @@ live_get <- function(pings_source = "puretrack", milestone_winter = 15, mileston
       lon_cur = longitude
     )
 
+  # Logging --------------------------------------------------------------------
+
+  if(logging){
+    time_stamp <- lubridate::now()
+
+    pings_live |>
+      dplyr::mutate(
+        read_timestamp = time_stamp
+      ) |>
+      readr::write_csv("logging.csv", append = TRUE)
+  }
 
   #---- Load first pings or set empty table ------------------------------------
   if (file.exists("pings.RDS")) {
