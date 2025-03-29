@@ -2,5 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
-odb_first_pings.RDS
-odb_last_pings.RDS
+pings.RDS
+logging.csv
