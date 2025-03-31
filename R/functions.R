@@ -271,17 +271,13 @@ add_telegram_groups <- function(pings, sites){
 
 }
 
-summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 5){
+summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2){
 
-  test <- pings |>
+  pings |>
     add_telegram_groups(sites) |>
   # Summarises glider pings table into a string to be sent as a Telegram message
     dplyr::filter(time >= lubridate::now() - lubridate::minutes(max_age)) |>
     dplyr::rowwise() |>
-    dplyr::mutate(alt_agl = ifelse(
-      xc_distance_cur > on_xc_distance,
-      altitude - terrain_elevation(longitude, latitude),
-      NA)) |>
     dplyr::ungroup() |>
     dplyr::mutate(
       flying = ifelse(
@@ -307,6 +303,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 5)
       lat,
       long
     ) |>
+    dplyr::mutate(max_xc_distance = max(xc_distance_cur, na.rm = TRUE)) |>
     dplyr::summarise(
       max_alt = ifelse(sum(flying) - sum(on_xc) > 0,
                        max(
@@ -319,8 +316,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 5)
       flying = sum(flying) - sum(on_xc),
       parawaiting = sum(parawaiting, na.rm = TRUE),
       on_xc = sum(on_xc),
-      max_xc_distance = max(ifelse(on_xc==1, xc_distance_cur, 0)
-      )
+      max_xc_distance = max(max_xc_distance)
     ) |>
     dplyr::filter(flying > 0 | parawaiting > 0 | on_xc > 0) %>%
     dplyr::mutate(
@@ -328,7 +324,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 5)
         "{beacon_type} {flying}|{parawaiting}|{on_xc}|{round(avg_alt, 0)}'|{round(max_alt, 0)}'"
       )
     ) |>
-    dplyr::mutate(summary_text = ifelse(max_xc_distance > 0,
+    dplyr::mutate(summary_text = ifelse(on_xc > 0,
                                         glue::glue("{summary_text}\nFurthest airborne glider on XC is at {max_xc_distance}km"), summary_text)) |>
     dplyr::group_by(telegram_group_name,
              telegram_group_id,
