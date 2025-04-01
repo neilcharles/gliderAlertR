@@ -119,7 +119,7 @@ read_puretrack_live <- function(){
     dplyr::mutate(
       time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
     ) |>
-    tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0)) |>
+    tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0, ground_level = 0)) |>
     dplyr::mutate(altitude = round(altitude * 3.28, 0),
                   ground_level = round(ground_level * 3.28, 0),
                   ground_speed = round(ground_speed * 1.852, 0),
@@ -328,7 +328,7 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
       add_telegram_groups(sites) |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
-      dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/?k={id}&z=14.0">Puretrack</a>'))
+      dplyr::mutate(telegram_message = glue::glue("<b>{call_sign}</b> is on XC, {xc_distance_cur}km from {takeoff_site}, passing {location_name} at {altitude}' ({altitude_agl}' AGL)\n<a href='https://puretrack.io/?k={id}&z=14.0'>Puretrack</a>"))
 
     purrr::walk2(
       .x = telegram_xc_milestone$telegram_message,

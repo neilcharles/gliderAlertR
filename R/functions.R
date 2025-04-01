@@ -333,10 +333,14 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2)
              long) |>
     dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) |>
     dplyr::mutate(
-      summary_text = glue::glue(
-        # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
-        # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://live.safesky.app/map?lat={lat}&lng={long}&zoom=12.50">Map</a>'
-        '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://puretrack.io/?l={lat},{long}&z=14.0">Puretrack</a>'
+      summary_text =
+        ifelse(flying + parawaiting >0, # Don't add a site link if everyone has gone xc
+          glue::glue(
+          # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://glideandseek.com/?viewport={lat},{long},14">GlideAndSeek Map</a>'
+          # '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://live.safesky.app/map?lat={lat}&lng={long}&zoom=12.50">Map</a>'
+          '<b>{takeoff_site}</b>\n{summary_text}\n<a href="https://puretrack.io/?l={lat},{long}&z=14.0">Puretrack</a>'
+          ),
+          glue::glue('<b>{takeoff_site}</b>\n{summary_text}')
       )
     )
 }
