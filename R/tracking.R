@@ -119,7 +119,7 @@ read_puretrack_live <- function(){
     dplyr::mutate(
       time = as.POSIXct(unix_timestamp, origin = "1970-01-01", tz = "UTC"),
     ) |>
-    tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0)) |>
+    tidyr::replace_na(list("altitude" = 0, "ground_speed" = 0, ground_level = 0)) |>
     dplyr::mutate(altitude = round(altitude * 3.28, 0),
                   ground_level = round(ground_level * 3.28, 0),
                   ground_speed = round(ground_speed * 1.852, 0),
