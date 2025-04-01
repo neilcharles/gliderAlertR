@@ -331,7 +331,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2)
              takeoff_site,
              lat,
              long) |>
-    dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n')) |>
+    dplyr::summarise(summary_text = paste0(summary_text, collapse = '\n'), flying = sum(flying), parawaiting = sum(parawaiting)) |>
     dplyr::mutate(
       summary_text =
         ifelse(flying + parawaiting >0, # Don't add a site link if everyone has gone xc
