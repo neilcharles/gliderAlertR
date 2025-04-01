@@ -141,16 +141,16 @@ read_puretrack_live <- function(){
 #' @export
 #'
 #' @examples
-live_get <- function(pings_source = "puretrack", milestone_winter = 15, milestone_summer = 50, logging = FALSE){
+live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
 
-  if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
-    xc_milestone_interval <- milestone_winter
-  } else {
-    xc_milestone_interval <- milestone_summer
-  }
+  # if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
+  #   xc_milestone_interval <- milestone_winter
+  # } else {
+  #   xc_milestone_interval <- milestone_summer
+  # }
 
   sites <- read_sites()
 
@@ -273,6 +273,14 @@ live_get <- function(pings_source = "puretrack", milestone_winter = 15, mileston
       coords = c("lon_cur", "lat_cur"),
       crs = 4326
     ), by_element = TRUE)
+
+  # Set XC Milestone based on number of gliders across whole UK that are at distance intervals
+  xc_milestone_interval <- 50
+
+  if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 40)) < glider_milestone_count) xc_milestone_interval <- 40
+  if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 30)) < glider_milestone_count) xc_milestone_interval <- 30
+  if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 20)) < glider_milestone_count) xc_milestone_interval <- 20
+  if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 10)) < glider_milestone_count) xc_milestone_interval <- 10
 
   # Ensure xc vars are numeric for comparison because they're logical on first run due to NA setup
   pings_all$xc_distance_last = as.numeric(pings_all$xc_distance_last)
