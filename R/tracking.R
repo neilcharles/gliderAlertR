@@ -328,7 +328,7 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
       add_telegram_groups(sites) |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
-      dplyr::mutate(telegram_message = glue::glue('<b>{call_sign}</b> is on XC from {takeoff_site}, passing {location_name} at {xc_distance_cur}km\n<a href="https://puretrack.io/?k={id}&z=14.0">Puretrack</a>'))
+      dplyr::mutate(telegram_message = glue::glue("<b>{call_sign}</b> is on XC, {xc_distance_cur}km from {takeoff_site}, passing {location_name} at {altitude}' ({altitude_agl}' AGL)\n<a href='https://puretrack.io/?k={id}&z=14.0'>Puretrack</a>"))
 
     purrr::walk2(
       .x = telegram_xc_milestone$telegram_message,
