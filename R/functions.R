@@ -271,7 +271,7 @@ add_telegram_groups <- function(pings, sites){
 
 }
 
-summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2){
+summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2, flying_altitude_agl = 300){
 
   pings |>
     add_telegram_groups(sites) |>
@@ -282,7 +282,7 @@ summarise_site_pings <- function(pings, sites, max_age = 20, on_xc_distance = 2)
     dplyr::mutate(
       flying = ifelse(
         (xc_distance_cur < on_xc_distance & ground_speed > 3) |
-          altitude_agl >= 300,
+          altitude_agl >= flying_altitude_agl,
         1, 0),
       on_xc = ifelse(
         xc_distance_cur >= on_xc_distance &

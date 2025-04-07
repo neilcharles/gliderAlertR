@@ -141,7 +141,7 @@ read_puretrack_live <- function(){
 #' @export
 #'
 #' @examples
-live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE){
+live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE, flying_altitude_agl = 300){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
@@ -294,10 +294,11 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
     )
 
   pings_xc_milestone <- pings_all |>
+    dplyr::filter(altitude_agl >= flying_altitude_agl) |>
     dplyr::filter(xc_milestones_cur > xc_milestones_last) |>
     dplyr::filter(!is.na(call_sign))
 
-  summary_text <- summarise_site_pings(pings_all, sites, max_age = 10)
+  summary_text <- summarise_site_pings(pings_all, sites, max_age = 10, flying_altitude_agl = flying_altitude_agl)
 
   #------------ Send New Site Telegram Messages --------------------------------
 
