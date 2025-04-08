@@ -280,7 +280,6 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
   if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 40)) < glider_milestone_count) xc_milestone_interval <- 40
   if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 30)) < glider_milestone_count) xc_milestone_interval <- 30
   if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 20)) < glider_milestone_count) xc_milestone_interval <- 20
-  if(nrow(dplyr::filter(pings_all, as.numeric(xc_distance_cur)/1000 > 10)) < glider_milestone_count) xc_milestone_interval <- 10
 
   # Ensure xc vars are numeric for comparison because they're logical on first run due to NA setup
   pings_all$xc_distance_last = as.numeric(pings_all$xc_distance_last)
