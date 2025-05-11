@@ -23,7 +23,7 @@ pings_append_columns <- function(pings = NULL){
 #'
 #' @examples
 read_sites <- function(){
-  readr::read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_sites/main/sites.csv") |>
+  readr::read_csv("https://raw.githubusercontent.com/neilcharles/uk_pg_sites/main/sites.csv", show_col_types = FALSE) |>
     dplyr::filter(is.na(exclude) | !exclude) |>
     dplyr::select(-exclude, -notes)
 }
@@ -141,7 +141,7 @@ read_puretrack_live <- function(){
 #' @export
 #'
 #' @examples
-live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE, flying_altitude_agl = 300){
+live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE, flying_altitude_agl = 300, test_log = NULL, test_timestamp = NULL){
 
   message_limit <- 100
   pg_takeoff_size <- 1000
@@ -156,8 +156,13 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
 
   if(pings_source=="safesky"){
     pings_live <- read_safesky_live()
+    run_timestamp <- lubridate::now()
   } else if (pings_source=="puretrack"){
     pings_live <- read_puretrack_live()
+    run_timestamp <- lubridate::now()
+  } else if (pings_source=="testlog"){
+    pings_live <- test_log
+    run_timestamp <- test_timestamp
   }
 
   if(is.null(pings_live)){
@@ -166,7 +171,7 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
   }
 
   pings_live <- pings_live |>
-    dplyr::filter(time >= lubridate::now() - lubridate::minutes(5)) |>
+    dplyr::filter(time >= run_timestamp - lubridate::minutes(5)) |>
     pings_append_columns() |>
     dplyr::mutate(
       lat_cur = latitude,
@@ -176,11 +181,9 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
   # Logging --------------------------------------------------------------------
 
   if(logging){
-    time_stamp <- lubridate::now()
-
     pings_live |>
       dplyr::mutate(
-        read_timestamp = time_stamp
+        read_timestamp = run_timestamp
       ) |>
       readr::write_csv("logging.csv", append = TRUE)
   }
@@ -197,7 +200,7 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
 
   #Remove any device ID that hasn't been seen for an hour
   pings_cache <- pings_cache |>
-    dplyr::filter(time > lubridate::now() - lubridate::hours(1)) |>
+    dplyr::filter(time > run_timestamp - lubridate::hours(1)) |>
     dplyr::mutate(ping_status = "cache")
 
 
@@ -288,7 +291,8 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
     dplyr::mutate(xc_distance_cur = round(as.numeric(xc_distance_cur) / 1000, 0),
                   xc_milestones_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
                   xc_milestones_cur = floor(xc_distance_cur / xc_milestone_interval) * xc_milestone_interval
-    )
+    ) |>
+    dplyr::filter(is.na(xc_distance_last) | abs(xc_distance_cur - xc_distance_last)<30) # drop any dodgy track points where XC distance has suddenly spiked
 
   pings_xc_milestone <- pings_all |>
     dplyr::filter(altitude_agl >= flying_altitude_agl) |>
@@ -312,11 +316,18 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(telegram_message = glue::glue("<b>First pilots at site since >1 hour</b>\n<i>flying</i>|<i>waiting</i>|<i>gone xc</i>|<i>avg</i>|<i>max</i>\n\n{summary_text}"))
 
-    purrr::walk2(
-      .x = telegram_new$telegram_message,
-      .y = telegram_new$telegram_group_id,
-      .f = ~ send_telegram(.x, .y, override_daylight = FALSE)
-    )
+    if(pings_source!="testlog"){
+      purrr::walk2(
+        .x = telegram_new$telegram_message,
+        .y = telegram_new$telegram_group_id,
+        .f = ~ send_telegram(.x, .y, override_daylight = FALSE)
+      )
+    } else {
+      purrr::walk(
+        .x = telegram_new$telegram_message,
+        .f = ~print(.x)
+      )
+    }
   }
 
   #------------ Send XC Milestone Telegram Messages ----------------------------
@@ -326,13 +337,21 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
       add_telegram_groups(sites) |>
       dplyr::filter(!is.na(telegram_group_id)) |>
       dplyr::mutate(location_name = geocode_location(latitude, longitude)) |>
-      dplyr::mutate(telegram_message = glue::glue("<b>{call_sign}</b> is on XC, {xc_distance_cur}km from {takeoff_site}, passing {location_name} at {altitude}' ({altitude_agl}' AGL)\n<a href='https://puretrack.io/?k={id}&z=14.0'>Puretrack</a>"))
+      dplyr::mutate(telegram_message = glue::glue("<a href='https://puretrack.io/?k={id}&z=14.0'><b>{call_sign}</b></a> is on XC, {xc_distance_cur}km from {takeoff_site}, passing {location_name} at {altitude}' ({altitude_agl}' AGL)"))
 
-    purrr::walk2(
-      .x = telegram_xc_milestone$telegram_message,
-      .y = telegram_xc_milestone$telegram_group_id,
-      .f = ~ send_telegram(.x, .y, override_daylight = FALSE)
-    )
+    if(pings_source!="testlog"){
+      purrr::walk2(
+        .x = telegram_xc_milestone$telegram_message,
+        .y = telegram_xc_milestone$telegram_group_id,
+        .f = ~ send_telegram(.x, .y, override_daylight = FALSE)
+      )
+    } else {
+      purrr::walk(
+        .x = telegram_xc_milestone$telegram_message,
+        .f = ~print(.x)
+      )
+    }
+
   }
 
   #------------ save pings -----------------------------------------------------
