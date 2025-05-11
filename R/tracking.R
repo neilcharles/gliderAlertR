@@ -292,7 +292,7 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
                   xc_milestones_last = floor(xc_distance_last / xc_milestone_interval) * xc_milestone_interval,
                   xc_milestones_cur = floor(xc_distance_cur / xc_milestone_interval) * xc_milestone_interval
     ) |>
-    dplyr::filter(is.na(xc_distance_last) | abs(xc_distance_cur - xc_distance_last)<30) # drop any dodgy track points where XC distance has suddenly spiked
+    dplyr::filter(is.na(xc_distance_cur) | is.na(xc_distance_last) | abs(xc_distance_cur - xc_distance_last)<30) # drop any dodgy track points where XC distance has suddenly spiked
 
   pings_xc_milestone <- pings_all |>
     dplyr::filter(altitude_agl >= flying_altitude_agl) |>
