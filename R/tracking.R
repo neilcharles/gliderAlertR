@@ -144,7 +144,7 @@ read_puretrack_live <- function(){
 live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, logging = FALSE, flying_altitude_agl = 300, test_log = NULL, test_timestamp = NULL){
 
   message_limit <- 100
-  pg_takeoff_size <- 1000
+  pg_takeoff_size <- 3000
 
   # if(lubridate::month(lubridate::now()) %in% c(10,11,12,1,2)){
   #   xc_milestone_interval <- milestone_winter
