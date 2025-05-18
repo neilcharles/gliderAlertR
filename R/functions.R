@@ -203,15 +203,13 @@ geocode_location <- function(lat = NULL, long = NULL) {
 
   googleway::set_key(Sys.getenv('GOOGLE_MAPS'))
 
-  tryCatch(
-    geocoded_location <- googleway::google_reverse_geocode(c(lat, long))
+  geocoded_location <- tryCatch(
+    googleway::google_reverse_geocode(c(lat, long))
   , error = function(msg){
-    geocoded_location <- "_"
+    "_"
   })
 
-  if(length(geocoded_location[["results"]])==0){
-    return("_")
-  }
+  if(length(geocoded_location)==1) return(geocoded_location)
 
   name_attempt <- geocoded_location[["results"]] |>
     tibble::as_tibble() |>
