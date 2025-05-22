@@ -178,6 +178,11 @@ live_get <- function(pings_source = "puretrack", glider_milestone_count = 5, log
       lon_cur = longitude
     )
 
+  # For debugging to break on specific pilot
+  # if(any(pings_live$call_sign=="Richard Butterworth", na.rm = TRUE)){
+  #   browser()
+  # }
+
   # Logging --------------------------------------------------------------------
 
   if(logging){
